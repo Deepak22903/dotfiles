@@ -1,0 +1,19 @@
+[user]
+	email = deepakshitole4@gmail.com
+	name = Deepak22903
+[credential]
+	helper = store
+[http]
+	postBuffer = 1048576000
+[safe]
+	directory = /mnt/data/B_Tech
+	directory = /mnt/data/b_tech
+	directory = /mnt/data/B_tech
+	directory = /mnt/deepak/data/B_Tech
+	directory = /mnt/deepak/data/B_Tech/Sem_5/AI_Lab/PaletteNet-Implementation-Ai-Project
+	directory = /mnt/deepak/data/posts
+	directory = /mnt/deepak/data/B_Tech/PP/schedule_maker
+	directory = /mnt/deepak/data/B_Tech/Sem_5/SE/Ass_8
+	directory = /mnt/deepak/data/dotfiles
+[core]
+	editor = nvim
