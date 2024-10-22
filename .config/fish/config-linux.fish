@@ -21,8 +21,27 @@ alias back="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/back
 alias batt="cat /sys/class/power_supply/BAT0/capacity"
 alias upnet="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/connect_internet.sh"
 alias downnet="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/disconnect_internet.sh"
+alias load="source ~/.config/fish/config.fish"
 
 function copyErrors
     $argv 2>&1 | xclip -selection clipboard
 end
 
+
+function netst
+    set_color green
+    for interface in (nmcli -t connection show --active | cut -d':' -f4 | grep -v '^lo$')
+        set name (nmcli -t connection show --active | grep $interface | cut -d':' -f1)
+        echo -n "$name - "
+        
+        # Get network statistics using ifstat and format the output
+        ifstat | awk -v iface=$interface '$1 == iface {
+            down = $6 / 1024  # Convert to MB/s
+            up = $8 / 1024    # Convert to MB/s
+            printf "%s %.2f MB/s, %s %.2f MB/s\n", 
+                   (down ? ("\033[0;32m↓\033[0m") : ""), down, 
+                   (up ? ( "\033[0;32m↑\033[0m") : ""), up
+        }'
+    end
+    set_color normal
+end
