@@ -6,7 +6,7 @@ alias cat bat
 alias ripman tldr
 alias anime "ani-cli -q 1080 -v"
 alias hotspot="sudo create_ap --no-virt wlan0 eno1 'Deepak\'s Arch' password"
-alias tt "open /home/deepak/Downloads/class_TY-Div2.pdf"
+alias timet "open /home/deepak/Downloads/class_TY-Div2.pdf"
 alias gp "/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/git/git_push.sh"
 alias v nvim
 alias gs "git status"

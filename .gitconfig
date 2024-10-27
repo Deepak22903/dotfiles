@@ -15,5 +15,6 @@
 	directory = /mnt/deepak/data/B_Tech/PP/schedule_maker
 	directory = /mnt/deepak/data/B_Tech/Sem_5/SE/Ass_8
 	directory = /mnt/deepak/data/dotfiles
+	directory = /mnt/deepak/data/B_Tech/Sem_5/DBMS/DBMS_Lab/ass5/Music_Streaming
 [core]
 	editor = nvim
