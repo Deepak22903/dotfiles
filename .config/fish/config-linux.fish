@@ -10,8 +10,8 @@ alias timet "open /home/deepak/Downloads/class_TY-Div2.pdf"
 alias gp "/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/git/git_push.sh"
 alias v nvim
 alias gs "git status"
-alias bluec "/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/kde_connect/bluetooth_connect_headphones.sh"
-alias blued "/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/kde_connect/bluetooth_disconnect_headphones.sh"
+# alias bluec "/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/kde_connect/bluetooth_connect_headphones.sh"
+# alias blued "/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/kde_connect/bluetooth_disconnect_headphones.sh"
 # alias hotspot_off "/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/hotspot_stop.sh"
 alias cd z
 alias ydl="yt-dlp"
@@ -22,6 +22,7 @@ alias batt="cat /sys/class/power_supply/BAT0/capacity"
 alias upnet="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/connect_internet.sh"
 alias downnet="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/disconnect_internet.sh"
 alias load="source ~/.config/fish/config.fish"
+alias blue="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/blue.sh"
 
 function copyErrors
     $argv 2>&1 | xclip -selection clipboard
