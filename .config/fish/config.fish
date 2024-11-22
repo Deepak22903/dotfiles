@@ -82,3 +82,5 @@ set -Ux fish_user_paths /var/lib/snapd/snap/bin $fish_user_paths
 source /opt/miniconda3/etc/profile.d/conda.fish
 
 set BAT_THEME "Catppuccin Mocha"
+
+colorscript -e crunchbang-mini
