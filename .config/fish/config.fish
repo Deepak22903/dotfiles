@@ -43,39 +43,6 @@ bind \co fzf_open_file
 # Created by `pipx` on 2024-08-24 15:51:49
 set PATH $PATH /home/deepak/.local/bin
 
-# set -l idle_time 5  # Set inactivity time in seconds (300 seconds = 5 minutes)
-# #
-# # function run_pipes
-# #     pipes.sh
-# # end
-# #
-# # function check_inactivity
-# #     while true
-# #         read -t 5 -P 'Press any key to cancel pipes.sh from running...' -n 1
-# #         if test $status -eq 142
-# #             run_pipes
-# #         end
-# #     end
-# # end
-# #
-# # check_inactivity &
-# #
-#
-# set marker_file ~/.last_terminal_start
-#
-# # Check if the marker file exists and is older than the current session
-# if test ! -f $marker_file
-#     touch $marker_file
-#     fortune -s | cowsay -f tux
-#     echo ""
-#     # pokemon-colorscripts -sr | cat || true
-# else if test (date +%s -r $marker_file) -lt (date +%s -r /proc/uptime)
-#     # Update the marker file
-#     touch $marker_file
-#     fortune -s | cowsay -f tux
-#     echo ""
-#     # pokemon-colorscripts -sr | cat || true
-# end
 
 set -Ux fish_user_paths /var/lib/snapd/snap/bin $fish_user_paths
 
@@ -84,3 +51,4 @@ source /opt/miniconda3/etc/profile.d/conda.fish
 set BAT_THEME "Catppuccin Mocha"
 
 colorscript -e crunchbang-mini
+

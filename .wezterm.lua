@@ -49,4 +49,5 @@ return {
       action = wezterm.action.OpenLinkAtMouseCursor,
     },
   },
+  enable_wayland = false,
 }
