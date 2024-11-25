@@ -1,0 +1,77 @@
+{
+  "position": "top",
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": ["network#speed","network", "bluetooth", "pulseaudio", "battery", "clock"],
+  "clock": {
+    "format": "<span foreground='#eba0ac'>   </span>{:%a %d %H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "<span size='13000' foreground='#a6e3a1'>{icon} </span> {capacity}%",
+    "format-warning": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {capacity}%",
+    "format-critical": "<span size='13000' foreground='#E38C8F'>{icon} </span> {capacity}%",
+    "format-charging": "<span size='13000' foreground='#B1E3AD'>󰂄 </span>{capacity}%",
+    "format-plugged": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
+    "format-alt": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {time}",
+    "format-full": "<span size='13000' foreground='#B1E3AD'>󰁹 </span>{capacity}%",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "tooltip-format": "{time}"
+  },
+  "network": {
+    "format-wifi": "<span size='13000' foreground='#fab387'>󱚽 </span>{essid}",
+    "format-ethernet": "<span size='13000' foreground='#fab387'>󰈀 </span>Connected",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "<span size='13000' foreground='#fab387'>󰖪 </span>Disconnected",
+    "tooltip-format-wifi": "Signal Strength: {signalStrength}%",
+    "tooltip-format-ethernet": "IP: {ipaddr}",
+    "interval": 1
+  },
+  "bluetooth": {
+    "format": "<span size='13000' foreground='#89b4fa'>{icon}</span>",
+    "format-disabled": "<span size='13000' foreground='#89b4fa'>󰂲</span>",
+    "format-connected": "<span size='13000' foreground='#89b4fa'>󰂱 {device_alias}</span>",
+    "format-icons": ["󰂯", "󰂱"],
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "blueman-manager"
+  },
+  "pulseaudio": {
+    "format": "<span size='13000' foreground='#cba6f7'>{icon} {volume}%</span> ",
+    "format-muted": "<span size='13000' foreground='#cba6f7'>󰖁  Muted</span>",
+    "format-icons": {
+      "headphone": "󰋋 ",
+      "hands-free": "󰋎 ",
+      "headset": "󰋎 ",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "scroll-step": 5.0,
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  },
+"network#speed": {
+"interval": 1,
+"format": "{ifname}",
+"format-wifi": "{icon}  {bandwidthDownBytes}   {bandwidthUpBytes} ",
+"format-ethernet": "{icon}  {bandwidthDownBytes}   {bandwidthUpBytes} ",
+// "format-disconnected": "󰌙",
+"tooltip-format": "{ipaddr}",
+"format-linked": "󰈁 {ifname} (No IP)",
+"tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
+"tooltip-format-ethernet": "{ifname} 󰌘",
+"tooltip-format-disconnected": "󰌙 Disconnected",
+"max-length": 30,
+// "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"]
+}, 
+  "hyprland/window":{
+    "format": "{class}",
+  }
+}
