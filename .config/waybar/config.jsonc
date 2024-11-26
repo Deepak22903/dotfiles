@@ -1,8 +1,15 @@
 {
   "position": "top",
-  "modules-left": ["hyprland/workspaces"],
+  "modules-left": ["custom/arch","hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
   "modules-right": ["network#speed","network", "bluetooth", "pulseaudio", "battery", "clock"],
+   
+  "custom/arch": {
+    "format": "<span foreground='#89b4fa' font='20'> 󰣇 </span>",
+    // "exec": "echo ' 󰄛 '", // Option 2: Alternate simple logo
+    "tooltip": "Arch Linux",
+    "interval": "once"
+  },
   "clock": {
     "format": "<span foreground='#eba0ac'>   </span>{:%a %d %I:%M %p}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
