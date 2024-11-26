@@ -4,7 +4,7 @@
   "modules-center": ["hyprland/window"],
   "modules-right": ["network#speed","network", "bluetooth", "pulseaudio", "battery", "clock"],
   "clock": {
-    "format": "<span foreground='#eba0ac'>   </span>{:%a %d %H:%M}",
+    "format": "<span foreground='#eba0ac'>   </span>{:%a %d %I:%M %p}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
   "battery": {
