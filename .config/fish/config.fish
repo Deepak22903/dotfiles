@@ -57,3 +57,10 @@ if status is-interactive
         tmux new-session -c $PWD
     end
 end
+
+set -gx PATH "/home/deepak/dotfiles/.config/tmux/plugins/tmuxifier/bin" $PATH
+
+eval (tmuxifier init - fish)
+
+set -gx EDITOR nvim
+
