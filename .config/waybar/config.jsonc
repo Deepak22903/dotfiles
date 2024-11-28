@@ -29,9 +29,11 @@
     "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     "tooltip-format": "{time}"
   },
+  
   "network": {
     "format-wifi": "<span size='13000' foreground='#fab387'>󱚽 </span>{essid}",
     "format-ethernet": "<span size='13000' foreground='#fab387'>󰈀 </span>Connected",
+    "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "<span size='13000' foreground='#fab387'>󰖪 </span>Disconnected",
     "tooltip-format-wifi": "Signal Strength: {signalStrength}%",
@@ -67,8 +69,8 @@
 "network#speed": {
 "interval": 1,
 "format": "{ifname}",
-"format-wifi": "{icon}  {bandwidthDownBytes}   {bandwidthUpBytes} ",
-"format-ethernet": "{icon}  {bandwidthDownBytes}   {bandwidthUpBytes} ",
+"format-wifi": "{icon}  {bandwidthDownBytes}    {bandwidthUpBytes} ",
+"format-ethernet": "{icon}  {bandwidthDownBytes}    {bandwidthUpBytes} ",
 // "format-disconnected": "󰌙",
 "tooltip-format": "{ipaddr}",
 "format-linked": "󰈁 {ifname} (No IP)",

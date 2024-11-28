@@ -52,3 +52,8 @@ set BAT_THEME "Catppuccin Mocha"
 
 colorscript -e crunchbang-mini
 
+if status is-interactive
+    if not set -q TMUX
+        tmux new-session -c $PWD
+    end
+end
