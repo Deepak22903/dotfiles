@@ -1,0 +1,202 @@
+{
+    "07236e3a-9da0-4f80-bfc2-85cd97f0e99f": {
+        "id": "07236e3a-9da0-4f80-bfc2-85cd97f0e99f",
+        "name": "Google Search",
+        "keyword": "g",
+        "cmd": "https://google.com/search?q=%s",
+        "icon": "/usr/share/ulauncher/media/google-search-icon.png",
+        "is_default_search": true,
+        "run_without_argument": false,
+        "added": 1725304537.5203078
+    },
+    "89a2feee-f3c7-45e0-88e1-ea484b431b1e": {
+        "id": "89a2feee-f3c7-45e0-88e1-ea484b431b1e",
+        "name": "Stack Overflow",
+        "keyword": "so",
+        "cmd": "https://stackoverflow.com/search?q=%s",
+        "icon": "/usr/share/ulauncher/media/stackoverflow-icon.svg",
+        "is_default_search": true,
+        "run_without_argument": false,
+        "added": 1725304537.5203464
+    },
+    "ceb5159e-96b7-4cd7-9084-5feb34ee2691": {
+        "id": "ceb5159e-96b7-4cd7-9084-5feb34ee2691",
+        "name": "Wikipedia",
+        "keyword": "wiki",
+        "cmd": "https://en.wikipedia.org/wiki/%s",
+        "icon": "/usr/share/ulauncher/media/wikipedia-icon.png",
+        "is_default_search": true,
+        "run_without_argument": false,
+        "added": 1725304537.5203745
+    },
+    "2b3ccd8c-8479-4a44-b1c5-e6bd83fbf763": {
+        "id": "2b3ccd8c-8479-4a44-b1c5-e6bd83fbf763",
+        "name": "Sleep",
+        "keyword": "sleep",
+        "cmd": "systemctl suspend",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": true,
+        "added": 1725310175.6003506
+    },
+    "81429927-503e-4693-af99-5f3a2ecd328d": {
+        "id": "81429927-503e-4693-af99-5f3a2ecd328d",
+        "name": "Shutdown",
+        "keyword": "shutdown",
+        "cmd": "systemctl poweroff",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": true,
+        "added": 1725310308.607994
+    },
+    "b910dcd7-d82c-4deb-b733-21e5eab171d1": {
+        "id": "b910dcd7-d82c-4deb-b733-21e5eab171d1",
+        "name": "Restart",
+        "keyword": "restart",
+        "cmd": "systemctl reboot\n",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": true,
+        "added": 1725310333.3578916
+    },
+    "4195830a-b497-4e81-bd95-0e3b6c52db04": {
+        "id": "4195830a-b497-4e81-bd95-0e3b6c52db04",
+        "name": "Telegramfs Start",
+        "keyword": "telegramfs start",
+        "cmd": "/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/start_telegramfs.fish",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": true,
+        "added": 1725346856.444561
+    },
+    "3cfc2c01-a1f9-4bf5-b750-d2c55fa0d753": {
+        "id": "3cfc2c01-a1f9-4bf5-b750-d2c55fa0d753",
+        "name": "Telegramfs Stop",
+        "keyword": "telegramfs stop",
+        "cmd": "fusermount -u /mnt/deepak/telegramfs",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": true,
+        "added": 1725346969.9060938
+    },
+    "97679d7b-2241-4587-8fe9-f9cd67ea987b": {
+        "id": "97679d7b-2241-4587-8fe9-f9cd67ea987b",
+        "name": "Hotspot Start",
+        "keyword": "hotspot start",
+        "cmd": "sudo hotspot",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": false,
+        "added": 1727407239.6444924
+    },
+    "5e584ccd-25f7-4e59-b974-5f3f3f118d9a": {
+        "id": "5e584ccd-25f7-4e59-b974-5f3f3f118d9a",
+        "name": "Hotspot Stop",
+        "keyword": "hotspot stop",
+        "cmd": "/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/hotspot_stop.sh",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": true,
+        "added": 1727407282.5234954
+    },
+    "6a7025e9-e4bc-4597-90c7-0228cd6c2ca9": {
+        "id": "6a7025e9-e4bc-4597-90c7-0228cd6c2ca9",
+        "name": "Close",
+        "keyword": "close",
+        "cmd": "xdotool getactivewindow windowkill\n",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": true,
+        "added": 1727608607.7408087
+    },
+    "8bb60d33-de7a-49cb-a711-cc28bc62a2e8": {
+        "id": "8bb60d33-de7a-49cb-a711-cc28bc62a2e8",
+        "name": "Minimize",
+        "keyword": "minimize",
+        "cmd": "xdotool getactivewindow windowminimize\n",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": true,
+        "added": 1727932181.3237836
+    },
+    "2bcecf28-c77c-4cd0-98d5-e112f99db920": {
+        "id": "2bcecf28-c77c-4cd0-98d5-e112f99db920",
+        "name": "Maximize",
+        "keyword": "maximize",
+        "cmd": "xdotool getactivewindow windowsize 100% 100%\n",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": true,
+        "added": 1727932205.0884383
+    },
+    "3ea33da8-eaee-4a94-9707-e4942ad82b75": {
+        "id": "3ea33da8-eaee-4a94-9707-e4942ad82b75",
+        "name": "Left",
+        "keyword": "left",
+        "cmd": "xdotool getactivewindow windowsize 50% 100% && xdotool getactivewindow windowmove 0 0\n",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": true,
+        "added": 1727932248.3853095
+    },
+    "64a28f15-16ee-468b-8944-057c60825060": {
+        "id": "64a28f15-16ee-468b-8944-057c60825060",
+        "name": "Right",
+        "keyword": "right",
+        "cmd": "xdotool getactivewindow windowsize 50% 100% && xdotool getactivewindow windowmove $(($(xdotool getdisplaygeometry | awk '{print $1}') / 2)) 0\n",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": true,
+        "added": 1727932367.8727117
+    },
+    "77e943cf-18a2-47cd-a1a3-ef91006b6472": {
+        "id": "77e943cf-18a2-47cd-a1a3-ef91006b6472",
+        "name": "Top left",
+        "keyword": "top left",
+        "cmd": "xdotool getactivewindow windowsize 50% 50% && xdotool getactivewindow windowmove 0 0\n",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": true,
+        "added": 1727932443.0603964
+    },
+    "010d82e6-132a-4981-aafd-a310ca185e92": {
+        "id": "010d82e6-132a-4981-aafd-a310ca185e92",
+        "name": "Bottom left",
+        "keyword": "bottom left",
+        "cmd": "xdotool getactivewindow windowsize 50% 50% && xdotool getactivewindow windowmove 0 $(($(xdotool getdisplaygeometry | awk '{print $2}') / 2))\n",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": true,
+        "added": 1727932474.4751446
+    },
+    "ddc77650-29c9-4505-a948-05ea0e5dfdcd": {
+        "id": "ddc77650-29c9-4505-a948-05ea0e5dfdcd",
+        "name": "Top right",
+        "keyword": "top right",
+        "cmd": "xdotool getactivewindow windowsize 50% 50% && xdotool getactivewindow windowmove $(($(xdotool getdisplaygeometry | awk '{print $1}') / 2)) 0\n",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": true,
+        "added": 1727932493.3797765
+    },
+    "e8ddc8c1-afca-42c4-b1fc-5b699d1283ef": {
+        "id": "e8ddc8c1-afca-42c4-b1fc-5b699d1283ef",
+        "name": "Bottom right",
+        "keyword": "bottom right",
+        "cmd": "xdotool getactivewindow windowsize 50% 50% && xdotool getactivewindow windowmove $(($(xdotool getdisplaygeometry | awk '{print $1}') / 2)) $(($(xdotool getdisplaygeometry | awk '{print $2}') / 2))\n",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": true,
+        "added": 1727932513.7220387
+    },
+    "bdb728c0-eed0-4820-89a0-19a15eb71230": {
+        "id": "bdb728c0-eed0-4820-89a0-19a15eb71230",
+        "name": "Lock Screen",
+        "keyword": "lock screen",
+        "cmd": "loginctl lock-session",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": true,
+        "added": 1732194173.4129875
+    }
+}
