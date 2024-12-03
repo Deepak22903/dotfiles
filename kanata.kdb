@@ -1,0 +1,43 @@
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc
+  esc caps a s d f h j k l ' ; [ enter bspc lsft i u o
+)
+
+(defvar
+  tap-time 150
+  hold-time 200
+)
+
+(defalias
+  cp (tap-hold $tap-time $hold-time esc (layer-toggle capslock))
+  ec caps
+  a (tap-hold $tap-time $hold-time a lmet)
+  s (tap-hold $tap-time $hold-time s lalt)
+  d (tap-hold $tap-time $hold-time d lsft)
+  f (tap-hold $tap-time $hold-time f lctl)
+  j (tap-hold $tap-time $hold-time j rctl)
+  k (tap-hold $tap-time $hold-time k rsft)
+  l (tap-hold $tap-time $hold-time l ralt)
+  ; (tap-hold $tap-time $hold-time ; rmet)
+  [ bspc
+  bspc [
+  enter '
+  ' enter
+
+  lsft (tap-hold $tap-time $hold-time lsft (layer-toggle lsft))
+)
+
+(deflayer base
+  @ec @cp @a @s @d @f h @j @k @l @' @; @[ @enter @bspc @lsft i u o
+)
+
+(deflayer capslock
+  _ _ _ _ _ _ left down up (tap-hold $tap-time $hold-time right lalt) ' _ [ _ _ _ _ _ _
+)
+
+(deflayer lsft
+  _ _ _ _ _ _ _ kp4 kp2 kp6 _ _ _ _ _ _ kp8 kp5 kp+
+)
