@@ -64,3 +64,4 @@ eval (tmuxifier init - fish)
 
 set -gx EDITOR nvim
 
+set -Ux PATH /home/deepak/ghq/github.com/atos-tools/dineroIV/dineroIV $PATH
