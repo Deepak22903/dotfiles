@@ -46,7 +46,7 @@ set PATH $PATH /home/deepak/.local/bin
 
 set -Ux fish_user_paths /var/lib/snapd/snap/bin $fish_user_paths
 
-source /opt/miniconda3/etc/profile.d/conda.fish
+#source /opt/miniconda3/etc/profile.d/conda.fish
 
 set BAT_THEME "Catppuccin Mocha"
 
@@ -58,9 +58,9 @@ if status is-interactive
     end
 end
 
-set -gx PATH "/home/deepak/dotfiles/.config/tmux/plugins/tmuxifier/bin" $PATH
-
-eval (tmuxifier init - fish)
+#set -gx PATH "/home/deepak/dotfiles/.config/tmux/plugins/tmuxifier/bin" $PATH
+#
+#eval (tmuxifier init - fish)
 
 set -gx EDITOR nvim
 
