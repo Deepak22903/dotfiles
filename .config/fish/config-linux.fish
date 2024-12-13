@@ -24,6 +24,7 @@ alias downnet="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/d
 alias load="source ~/.config/fish/config.fish"
 alias blue="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/blue.sh"
 alias offhotspot="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/kde_connect/offhotspot.sh"
+alias peekdeepftp="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/ftp_mount.sh"
 
 function copyErrors
     $argv 2>&1 | xclip -selection clipboard
