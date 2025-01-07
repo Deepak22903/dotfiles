@@ -1,4 +1,4 @@
-alias ls "eza -lh -g --icons --git"
+alias ls "eza -lh -g --icons"
 alias ll "ls -a"
 alias tree "ls --level 2 --tree --icons --git"
 alias cat bat

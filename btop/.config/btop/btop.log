@@ -353,3 +353,6 @@
 
 2024/12/23 (23:29:24) | ===> btop++ v.1.4.0
 2024/12/23 (23:29:24) | WARNING: NVML: Failed to get maximum GPU power draw, defaulting to 225W: Not Supported
+
+2024/12/27 (15:19:43) | ===> btop++ v.1.4.0
+2024/12/27 (15:19:43) | WARNING: NVML: Failed to get maximum GPU power draw, defaulting to 225W: Not Supported
