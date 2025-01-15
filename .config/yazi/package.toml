@@ -1,5 +1,0 @@
-[plugin]
-deps = [{ use = "imsi32/yatline-githead", rev = "2f2b000" }, { use = "yazi-rs/plugins:git", rev = "9a1129c" }, { use = "KKV9/compress", rev = "60b24af" }]
-
-[flavor]
-deps = []

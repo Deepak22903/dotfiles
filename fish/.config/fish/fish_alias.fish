@@ -20,8 +20,8 @@ alias ydlmp4='yt-dlp -f "bestvideo&#91;ext=mp4]+bestaudio&#91;ext=m4a]/best&#91;
 alias ydlmkv='yt-dlp -f "bestvideo&#91;ext=mkv]+bestaudio&#91;ext=mka]/best&#91;ext=mkv]/best"'
 alias back="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/backup_data.sh"
 alias batt="cat /sys/class/power_supply/BAT0/capacity"
-alias upnet="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/connect_internet.sh"
-alias downnet="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/disconnect_internet.sh"
+alias unet="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/connect_internet.sh"
+alias dnet="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/disconnect_internet.sh"
 alias load="source ~/.config/fish/config.fish"
 alias blue="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/blue.sh"
 alias offhotspot="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/kde_connect/offhotspot.sh"
@@ -32,7 +32,7 @@ function copyErrors
 end
 
 
-function netst
+function nst
     set_color green
     for interface in (nmcli -t connection show --active | cut -d':' -f4 | grep -v '^lo$')
         set name (nmcli -t connection show --active | grep $interface | cut -d':' -f1)

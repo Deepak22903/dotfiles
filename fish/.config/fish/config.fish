@@ -4,7 +4,7 @@ zoxide init fish | source
 
 set -gx PATH ~/.local/bin $PATH
 
-source ~/.config/fish/config-linux.fish
+source ~/.config/fish/fish_alias.fish
 
 # Source custom peco change directory function
 source ~/.config/fish/functions/fzf_change_directory.fish
