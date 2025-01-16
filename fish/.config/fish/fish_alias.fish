@@ -26,6 +26,8 @@ alias load="source ~/.config/fish/config.fish"
 alias blue="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/blue.sh"
 alias offhotspot="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/kde_connect/offhotspot.sh"
 alias peekdeepftp="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/ftp_mount.sh"
+alias rnetm="sudo /home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/misc/NetworkManagerConfAddComment.sh /etc/NetworkManager/NetworkManager.conf 6"
+alias tt="xdg-open /mnt/deepak/data/B_Tech/Sem_6/Class\ TY\ Div2.pdf"
 
 function copyErrors
     $argv 2>&1 | xclip -selection clipboard
