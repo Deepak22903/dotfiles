@@ -16,7 +16,7 @@ desc = "Maximize or restore preview"
 
 keymap = [
   { on = [ "<A-d>" ], run = '''
-    shell 'dragon-drop -x -i -T "$1"' --confirm
+    shell 'ripdrag "$@" -x 2>/dev/null &' --confirm
 ''' },
 	{ on = "<Esc>", run = "escape",             desc = "Exit visual mode, clear selected, or cancel search" },
 	{ on = "<C-[>", run = "escape",             desc = "Exit visual mode, clear selected, or cancel search" },
