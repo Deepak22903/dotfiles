@@ -30,7 +30,7 @@ alias rnetm="sudo /home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/misc/
 alias tt="xdg-open /mnt/deepak/data/B_Tech/Sem_6/Class\ TY\ Div2.pdf"
 
 function copyErrors
-    $argv 2>&1 | xclip -selection clipboard
+    $argv 2>&1 | wl-copy
 end
 
 
