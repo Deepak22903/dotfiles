@@ -58,10 +58,11 @@ exec-once = wl-paste --type text --watch cliphist store
 exec-once = wl-paste --type image --watch cliphist store 
 # exec-once = kitty
 exec-once = systemctl --user start hyprpolkitagent
-exec-once = copyq --start-server
+# exec-once = copyq --start-server
 exec-once = wl-clipboard-history -t 
 exec-once = wl-paste --watch cliphist store
 exec-once = kdeconnectd
+exec-once = rfkill unblock bluetooth
 
 #############################
 ### ENVIRONMENT VARIABLES ###
@@ -263,6 +264,13 @@ bind = $mainMod ALT, u, exec, /home/deepak/ghq/github.com/Deepak22903/My_Shell_S
 bind = $mainMod ALT, d, exec, /home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/kde_connect/vdw.sh
 bind = $mainMod ALT, m, exec, /home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/kde_connect/mute.sh
 
+# brightness Controls
+bind = $mainMod ALT, k, exec, /home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/kde_connect/brightness_up.sh
+bind = $mainMod ALT, j, exec, /home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/kde_connect/brightness_down.sh
+
+# Suspend or Sleep shortcut
+bind = $mainMod ALT, s, exec, systemctl suspend
+
 # cliphist clipboard
 bind = SUPER, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
 
@@ -338,6 +346,10 @@ bindl = , XF86AudioNext, exec, playerctl next
 bindl = , XF86AudioPause, exec, playerctl play-pause
 bindl = , XF86AudioPlay, exec, playerctl play-pause
 bindl = , XF86AudioPrev, exec, playerctl previous
+
+# Laptop lid close screen off
+bindl=,switch:on:Lid Switch, exec, hyprctl dispatch dpms off && hyprctl dispatch exec hyprlock
+bindl=,switch:off:Lid Switch, exec, hyprctl dispatch dpms on
 
 ##############################
 ### WINDOWS AND WORKSPACES ###
