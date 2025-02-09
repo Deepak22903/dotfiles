@@ -16,7 +16,7 @@ bind \cf fzf_change_directory
 source ~/.config/fish/functions/fzf_select_history.fish
 
 # Bind Ctrl+R to the peco_select_history function
-bind \cr fzf_select_history
+# bind \cr fzf_select_history
 
 # Source fzf select and copy function
 source ~/.config/fish/functions/fzf_select_and_copy.fish
