@@ -29,6 +29,7 @@ alias peekdeepftp="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/glob
 alias rnetm="sudo /home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/misc/NetworkManagerConfAddComment.sh /etc/NetworkManager/NetworkManager.conf 6"
 alias tt="xdg-open /mnt/deepak/data/B_Tech/Sem_6/Class\ TY\ Div2.pdf"
 alias clock="tty-clock -c -C 4 -B -t"
+alias clear_cache="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/clear_arch_cache.sh"
 
 function copyErrors
     $argv 2>&1 | wl-copy
