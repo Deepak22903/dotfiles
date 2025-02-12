@@ -27,9 +27,10 @@ alias blue="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/blue
 alias offhotspot="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/kde_connect/offhotspot.sh"
 alias peekdeepftp="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/ftp_mount.sh"
 alias rnetm="sudo /home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/misc/NetworkManagerConfAddComment.sh /etc/NetworkManager/NetworkManager.conf 6"
-alias tt="xdg-open /mnt/deepak/data/B_Tech/Sem_6/Class\ TY\ Div2.pdf"
+alias tt="xdg-open /home/deepak/Downloads/class_TY-Div2.pdf"
 alias clock="tty-clock -c -C 4 -B -t"
 alias clear_cache="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/clear_arch_cache.sh"
+alias cl=clear
 
 function copyErrors
     $argv 2>&1 | wl-copy
