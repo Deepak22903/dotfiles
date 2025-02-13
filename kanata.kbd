@@ -63,7 +63,8 @@
 )
 
 (defsrc
-  esc
+        
+  esc                                                    f11
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   caps a    s    d    f    g    h    j    k    l    ;    '    ret
@@ -98,7 +99,7 @@
 )
 
 (deflayer base
-  @ec
+  @ec                                                   f11
   grv  1    2    3    4    5    6    7    8    9    0    -    =   @bspc
   tab  q    w    e    r    t    y    u    i    o    p    @[   ]    \
   @cp  @a   @s   @d   @f    g   h   @j   @k   @l   @;   @'   @enter
@@ -107,16 +108,16 @@
 )
 
 (deflayer capslock
-  _
+  _                                                       _
   _    _    _    _    _    _    _    _    _    _     _    _    _   _
   _    _    _    _    _    _    _    _    _    _     _    _   _    _
-  _    _    _    _    _    _    left  down  up   right  _    _   _
+  _    _    _    _    f11    _    left  down  up   right  _    _   _
   _    _    _    _    _    _    _    _    _    _     _    _
   _    _    _           _            _    _    _
 )
 
 (deflayer symbols
-  _
+  _                                                       _ 
   _    _    _    _    _    _    _    _    _    _     _    _    _   _
   _    `    S-`    S-3    S-7    S-\    _   S-1   S-[   S-]  [    ]    _   _    
   _    '    S--    S-;    =    S-4   S-2   S-9   S-0  S--  _    _   _
@@ -125,7 +126,7 @@
 )
 
 (deflayer numbers
-  _
+  _                                                       _
   _    _    _    _    _    _    _    _    _    _     _    _    _   _
   _    _    _    _    _    _    _    7    8    9     _    _   _    _
   _    _    _    _    _    _    _    4    5    6  _    _   _
