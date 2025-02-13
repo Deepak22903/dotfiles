@@ -110,8 +110,8 @@
 (deflayer capslock
   _                                                       _
   _    _    _    _    _    _    _    _    _    _     _    _    _   _
-  _    _    _    _    _    _    _    _    _    _     _    _   _    _
-  _    _    _    _    f11    _    left  down  up   right  _    _   _
+  _    _    _    _    _    _    _    _    _    _    f11    _   _    _
+  _    _    _    _    _    _    left  down  up   right  _    _   _
   _    _    _    _    _    _    _    _    _    _     _    _
   _    _    _           _            _    _    _
 )
