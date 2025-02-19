@@ -30,8 +30,10 @@ alias rnetm="sudo /home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/misc/
 alias tt="xdg-open /home/deepak/Downloads/class_TY-Div2.pdf"
 alias clock="tty-clock -c -C 4 -B -t"
 alias clear_cache="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/clear_arch_cache.sh"
-alias cl=clear
-alias comp="g++ src/main.cpp src/functions.cpp src/fb_pages.cpp -o my_program -lcurl -lPocoFoundation"
+# alias cl=clear
+# alias comp="g++ src/main.cpp src/functions.cpp src/fb_pages.cpp -o my_program -lcurl -lPocoFoundation"
+alias copyf="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/copyf.fish"
+alias findd="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/findd.fish"
 
 function copyErrors
     $argv 2>&1 | wl-copy

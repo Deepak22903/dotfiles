@@ -10,19 +10,19 @@ source ~/.config/fish/fish_alias.fish
 source ~/.config/fish/functions/fzf_change_directory.fish
 
 # Bind Ctrl+F to the _peco_change_directory function
-bind \cf fzf_change_directory
+# bind \cc fzf_change_directory
 
 # Source custom peco select history function
 source ~/.config/fish/functions/fzf_select_history.fish
 
 # Bind Ctrl+R to the peco_select_history function
-# bind \cr fzf_select_history
+bind \cr fzf_select_history
 
 # Source fzf select and copy function
 source ~/.config/fish/functions/fzf_select_and_copy.fish
 
 # Bind the function to Ctrl+S
-bind \cs fzf_select_and_copy
+# bind \cs fzf_select_and_copy
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
