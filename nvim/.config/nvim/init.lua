@@ -1,36 +1,40 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
 
-local autocmd = vim.api.nvim_create_autocmd
-
-autocmd("BufReadPost", {
-  pattern = "*",
-  callback = function()
-    local line = vim.fn.line("'\"")
-    if
-      line > 1
-      and line <= vim.fn.line("$")
-      and vim.bo.filetype ~= "commit"
-      and vim.fn.index({ "xxd", "gitrebase" }, vim.bo.filetype) == -1
-    then
-      vim.cmd('normal! g`"')
-    end
-  end,
-})
-
-autocmd("BufDelete", {
-  callback = function()
-    local bufs = vim.t.bufs
-    if #bufs == 1 and vim.api.nvim_buf_get_name(bufs[1]) == "" then
-      vim.cmd(":lua Snacks.dashboard()")
-    end
-  end,
-})
-
-autocmd("VimEnter", {
-  command = ":silent !kitty @ set-spacing padding=0 margin=0",
-})
-
-autocmd("VimLeavePre", {
-  command = ":silent !kitty @ set-spacing padding=20 margin=10",
-})
+-- require("transparent").setup({
+--   -- table: default groups
+--   groups = {
+--     "Normal",
+--     "NormalNC",
+--     "Comment",
+--     "Constant",
+--     "Special",
+--     "Identifier",
+--     "Statement",
+--     "PreProc",
+--     "Type",
+--     "Underlined",
+--     "Todo",
+--     "String",
+--     "Function",
+--     "Conditional",
+--     "Repeat",
+--     "Operator",
+--     "Structure",
+--     "LineNr",
+--     "NonText",
+--     "SignColumn",
+--     "CursorLine",
+--     "CursorLineNr",
+--     "StatusLine",
+--     "StatusLineNC",
+--     "EndOfBuffer",
+--   },
+--   -- table: additional groups that should be cleared
+--   extra_groups = {},
+--   -- table: groups you don't want to clear
+--   exclude_groups = {},
+--   -- function: code to be executed after highlight groups are cleared
+--   -- Also the user event "TransparentClear" will be triggered
+--   on_clear = function() end,
+-- })
