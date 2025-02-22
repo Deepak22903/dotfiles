@@ -6,7 +6,7 @@ return {
   opts = {
     bigfile = { enabled = true },
     dashboard = { enabled = true },
-    explorer = { enabled = true },
+    explorer = { enabled = false },
     indent = { enabled = true },
     input = { enabled = true },
     notifier = {
@@ -80,7 +80,7 @@ return {
     {
       "<leader>fc",
       function()
-        Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
+        Snacks.picker.files({ cwd = vim.fn.expand("~/dotfiles"), hidden = true })
       end,
       desc = "Find Config File",
     },

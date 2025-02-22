@@ -29,14 +29,12 @@ return {
   opts = {
     workspaces = {
       {
-        name = "personal",
-        path = "~/vaults/personal",
-      },
-      {
-        name = "work",
-        path = "~/vaults/work",
+        name = "Buffer",
+        path = "~/vaults/personal/Buffer",
       },
     },
+    notes_subdir = "Buffer",
+    disable_frontmatter = true,
     ui = {
       enable = false,
     },
@@ -55,13 +53,32 @@ return {
       -- Optional, if you keep daily notes in a separate directory.
       folder = "dailies",
       -- Optional, if you want to change the date format for the ID of daily notes.
-      date_format = "%d-%m-%Y",
+      date_format = "%d_%B_%Y",
       -- Optional, if you want to change the date format of the default alias of daily notes.
       alias_format = "%B %-d, %Y",
       -- Optional, default tags to add to each new daily note created.
       default_tags = { "daily-notes" },
       -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
       template = "dailies.md",
+      disable_frontmatter = true,
+    },
+    picker = {
+      -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', or 'mini.pick'.
+      name = "telescope.nvim",
+      -- Optional, configure key mappings for the picker. These are the defaults.
+      -- Not all pickers support all mappings.
+      note_mappings = {
+        -- Create a new note from your query.
+        new = "<C-x>",
+        -- Insert a link to the selected note.
+        insert_link = "<C-l>",
+      },
+      tag_mappings = {
+        -- Add tag(s) to current note.
+        tag_note = "<C-x>",
+        -- Insert a tag at the current location.
+        insert_tag = "<C-l>",
+      },
     },
   },
 }
