@@ -1,8 +1,7 @@
 return {
   "epwalsh/obsidian.nvim",
   version = "*", -- recommended, use latest release instead of latest commit
-  lazy = true,
-  ft = "markdown",
+  lazy = false,
   keys = {
     { "<leader>on", "<cmd>ObsidianNew<cr>", desc = "New Obsidian note", mode = "n" },
     { "<leader>od", "<cmd>ObsidianToday<cr>", desc = "Obsidian daily note", mode = "n" },
@@ -51,9 +50,9 @@ return {
     },
     daily_notes = {
       -- Optional, if you keep daily notes in a separate directory.
-      folder = "dailies",
+      -- folder = "dailies",
       -- Optional, if you want to change the date format for the ID of daily notes.
-      date_format = "%d_%B_%Y",
+      date_format = "%d %B %Y",
       -- Optional, if you want to change the date format of the default alias of daily notes.
       alias_format = "%B %-d, %Y",
       -- Optional, default tags to add to each new daily note created.
