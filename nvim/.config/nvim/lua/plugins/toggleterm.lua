@@ -23,7 +23,7 @@ return {
             return vim.o.columns * 0.4
           end
         end,
-        open_mapping = [[<F12>]],
+        open_mapping = [[<A-t>]],
         ---@diagnostic disable-next-line: unused-local
         on_open = function(term) end,
         ---@diagnostic disable-next-line: unused-local
@@ -64,14 +64,19 @@ return {
           winblend = 4,
         },
         winbar = {
-          enabled = true,
+          enabled = false,
         },
       })
     end,
     keys = {
-      { "<F12>" },
-      { "<Leader>tf", "<cmd>ToggleTerm direction=float<CR>", desc = "terminal float", mode = { "n", "i" } },
-      { "<A-h>", "<cmd>ToggleTerm direction=horizontal<CR>", desc = "terminal horizontal", mode = { "n", "i" } },
+      { "<A-t>" },
+      { "<A-f>", "<cmd>ToggleTerm direction=float<CR>", desc = "terminal float", mode = { "n", "i" } },
+      {
+        "<A-h>",
+        "<cmd>ToggleTerm direction=horizontal<CR>",
+        desc = "terminal horizontal",
+        mode = { "n", "i" },
+      },
       { "<A-v>", "<cmd>ToggleTerm direction=vertical<CR>", desc = "terminal vertical", mode = { "n", "i" } },
     },
   },
