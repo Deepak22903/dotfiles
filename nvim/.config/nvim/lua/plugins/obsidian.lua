@@ -5,6 +5,7 @@ return {
   keys = {
     { "<leader>on", "<cmd>ObsidianNew<cr>", desc = "New Obsidian note", mode = "n" },
     { "<leader>od", "<cmd>ObsidianToday<cr>", desc = "Obsidian daily note", mode = "n" },
+    { "<leader>oy", "<cmd>ObsidianYesterday<cr>", desc = "Obsidian yesterday note", mode = "n" },
     { "<leader>oo", "<cmd>ObsidianSearch<cr>", desc = "Search Obsidian notes", mode = "n" },
     { "<leader>os", "<cmd>ObsidianQuickSwitch<cr>", desc = "Quick Switch", mode = "n" },
     { "<leader>ob", "<cmd>ObsidianBacklinks<cr>", desc = "Show location list of backlinks", mode = "n" },
@@ -42,8 +43,7 @@ return {
 
     -- Optional, for templates (see below).
     templates = {
-      folder = "~/vaults/personal/templates",
-      date_format = "%d-%m-%Y",
+      folder = "~/vaults/personal/Buffer",
       time_format = "%H:%M",
       -- A map for custom variables, the key should be the variable and the value a function
       substitutions = {},
