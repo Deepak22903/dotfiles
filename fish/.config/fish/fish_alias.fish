@@ -29,7 +29,7 @@ alias peekdeepftp="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/glob
 alias rnetm="sudo /home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/misc/NetworkManagerConfAddComment.sh /etc/NetworkManager/NetworkManager.conf 6"
 alias tt="xdg-open /home/deepak/Downloads/class_TY-Div2.pdf"
 alias clock="tty-clock -c -C 4 -B -t"
-alias clear_cache="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/clear_arch_cache.sh"
+alias system_maintain="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/clear_arch_cache.sh"
 # alias cl=clear
 # alias comp="g++ src/main.cpp src/functions.cpp src/fb_pages.cpp -o my_program -lcurl -lPocoFoundation"
 alias copyf="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/copyf.fish"
@@ -39,13 +39,12 @@ function copyErrors
     $argv 2>&1 | wl-copy
 end
 
-
 function nst
     set_color green
     for interface in (nmcli -t connection show --active | cut -d':' -f4 | grep -v '^lo$')
         set name (nmcli -t connection show --active | grep $interface | cut -d':' -f1)
         echo -n "$name - "
-        
+
         # Get network statistics using ifstat and format the output
         ifstat | awk -v iface=$interface '$1 == iface {
             down = $6 / 1024  # Convert to MB/s
