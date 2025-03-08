@@ -34,6 +34,7 @@ alias system_maintain="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/
 # alias comp="g++ src/main.cpp src/functions.cpp src/fb_pages.cpp -o my_program -lcurl -lPocoFoundation"
 alias copyf="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/copyf.fish"
 alias findd="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/findd.fish"
+alias stl="mupdf -I -C FFFAF0 /home/deepak/Downloads/Cpp_STL_ReferenceManual.pdf"
 
 function copyErrors
     $argv 2>&1 | wl-copy
