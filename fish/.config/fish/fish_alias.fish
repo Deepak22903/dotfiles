@@ -35,6 +35,10 @@ alias system_maintain="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/
 alias copyf="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/copyf.fish"
 alias findd="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/findd.fish"
 alias stl="mupdf -I -C FFFAF0 /home/deepak/Downloads/Cpp_STL_ReferenceManual.pdf"
+alias mountPhone="sshfs kdeconnect@10.1.234.89:/storage/emulated/0 /home/deepak/Realme\ 6Pro/ -p 1739 \
+            -o IdentityFile=/home/deepak/.config/kdeconnect/privateKey.pem \
+            -o uid=1000 -o gid=1000 -o allow_other"
+alias umountPhone="sudo umount -l /home/deepak/Realme\ 6Pro/"
 
 function copyErrors
     $argv 2>&1 | wl-copy

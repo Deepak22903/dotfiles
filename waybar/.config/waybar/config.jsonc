@@ -5,6 +5,7 @@
   "modules-right": [
     "network#speed",
     "network",
+    "custom/kdeconnect",
     "bluetooth",
     "pulseaudio",
     "battery",
@@ -109,5 +110,11 @@
     "on-click": "swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
     "escape": true,
+  },
+  "custom/kdeconnect": {
+    "format": "󰄡 ",
+    "exec": "pgrep -x kdeconnect-indicator > /dev/null || kdeconnect-indicator",
+    "interval": 10,
+    "on-click": "kdeconnect-indicator",
   },
 }
