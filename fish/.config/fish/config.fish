@@ -39,10 +39,8 @@ end
 # Bind Ctrl+o to open file
 bind \co fzf_open_file
 
-
 # Created by `pipx` on 2024-08-24 15:51:49
 set PATH $PATH /home/deepak/.local/bin
-
 
 set -Ux fish_user_paths /var/lib/snapd/snap/bin $fish_user_paths
 
@@ -65,5 +63,3 @@ end
 set -gx EDITOR nvim
 
 set -Ux PATH /home/deepak/ghq/github.com/atos-tools/dineroIV/dineroIV $PATH
-
-thefuck --alias | source
