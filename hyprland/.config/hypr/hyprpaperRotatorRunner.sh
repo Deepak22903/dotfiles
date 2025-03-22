@@ -2,5 +2,5 @@
 
 while true; do
   ~/.config/hypr/hyprpaperRotator.sh
-  sleep 60
+  sleep 300
 done
