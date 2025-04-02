@@ -37,7 +37,7 @@ edit = [
 ]
 open = [
   { run = 'xdg-open "$1"', desc = "Default Open", for = "linux" },
-  { run = 'firefox "$1"', desc = "Open in firefox", for = "linux" },
+  # { run = 'firefox "$1"', desc = "Open in firefox", for = "linux" },
 	{ run = 'open "$@"',                    desc = "Open", for = "macos" },
 	{ run = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" },
 ]
@@ -118,7 +118,13 @@ preloaders = [
 	# Font
 	{ mime = "font/*", run = "font" },
 	{ mime = "application/vnd.ms-opentype", run = "font" },
+  # Do not preload MTP mount_point, cause they are very slow.
+  # Environment variable won't work here.
+  # Using absolute path instead.
+  { name = "/home/deepak/Media/**/*", run = "noop" },
+  #... the rest of preloaders
 ]
+
 previewers = [
 	{ name = "*/", run = "folder", sync = true },
 	# Code
@@ -143,6 +149,13 @@ previewers = [
 	{ mime = "inode/x-empty", run = "empty" },
 	# Fallback
 	{ name = "*", run = "file" },
+# Allow to preview folder.
+  { name = "*/", run = "folder", sync = true },
+  # Do not preview MTP mount_point (uncomment to except text file)
+  #  { mime = "{text/*,application/x-subrip}", run = "code" },
+  # Using absolute path.
+  { name = "/home/deepak/Media/**/*", run = "noop" },
+  #... the rest of previewers
 ]
 
 [input]

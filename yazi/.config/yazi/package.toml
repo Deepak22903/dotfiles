@@ -13,5 +13,50 @@ use = "KKV9/compress"
 rev = "60b24af"
 hash = "ee025be766240cc98e671754ac836da3"
 
+[[plugin.deps]]
+use = "Ape/open-with-cmd"
+rev = "433cf30"
+hash = "86e0312b01bc5762813c6c1d0517f073"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:jump-to-char"
+rev = "2730199"
+hash = "a670c03eb3760812e044a24f94cedc55"
+
+[[plugin.deps]]
+use = "dedukun/bookmarks"
+rev = "95b2c58"
+hash = "17a094653b7d0db4ac68ed531d2e1412"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:chmod"
+rev = "2730199"
+hash = "2f1053f89d1a301a648ab181d0948e38"
+
+[[plugin.deps]]
+use = "AnirudhG07/archivemount"
+rev = "6908a87"
+hash = "9cf90f2dd57a9d8d3d5e967dc30ac6e1"
+
+[[plugin.deps]]
+use = "GianniBYoung/rsync"
+rev = "3f431aa"
+hash = "1854a5a30d23e84bc8df24700f27957b"
+
+[[plugin.deps]]
+use = "pirafrank/what-size"
+rev = "b23e3a4"
+hash = "98e5f5af3efd3ba8bc2db0720187cc83"
+
+[[plugin.deps]]
+use = "boydaihungst/restore"
+rev = "5d22884"
+hash = "8e6fc2d660f661c91e30b10dd1a251b8"
+
+[[plugin.deps]]
+use = "boydaihungst/simple-mtpfs"
+rev = "614a2d2"
+hash = "daf919bc09c0ce5f052e9709aaf5ceba"
+
 [flavor]
 deps = []
