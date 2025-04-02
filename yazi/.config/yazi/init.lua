@@ -143,3 +143,15 @@ require("restore"):setup({
 })
 
 require("simple-mtpfs"):setup({})
+
+require("copy-file-contents"):setup({
+	append_char = "\n",
+	notification = true,
+})
+
+require("git"):setup()
+
+require("custom-shell"):setup({
+	history_path = "default",
+	save_history = true,
+})

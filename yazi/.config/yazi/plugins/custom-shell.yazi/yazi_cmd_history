@@ -1,0 +1,3 @@
+fish -c 'ls;exit'
+fish -c 'gs;exit'
+fish -c 'gp;exit'

@@ -66,3 +66,4 @@ set -Ux PATH /home/deepak/ghq/github.com/atos-tools/dineroIV/dineroIV $PATH
 
 # Chane cursor color
 echo -ne "\e]12;#89b4fa\a"
+export GTK_USE_PORTAL=1

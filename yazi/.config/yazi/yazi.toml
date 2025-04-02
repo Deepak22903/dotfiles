@@ -2,6 +2,18 @@
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*"
+run  = "git"
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*/"
+run  = "git"
+
+
 [manager]
 ratio          = [ 1, 4, 3 ]
 sort_by        = "mtime"
@@ -88,17 +100,6 @@ bizarre_retry    = 5
 image_alloc      = 536870912  # 512MB
 image_bound      = [ 0, 0 ]
 suppress_preload = false
-
-
-# [[plugin.prepend_fetchers]]
-# id   = "git"
-# name = "*"
-# run  = "git"
-#
-# [[plugin.prepend_fetchers]]
-# id   = "git"
-# name = "*/"
-# run  = "git"
 
 
 [plugin]
