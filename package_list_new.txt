@@ -69,7 +69,6 @@ iptables
 isomaster
 iwd
 java32-runtime-common
-kanata
 kdeconnect
 kitty
 konsole
@@ -176,9 +175,6 @@ xdotool
 xorg-server
 xorg-xhost
 xorg-xinit
-yay
-yay-debug
-yazi
 yt-dlp
 z
 zip
@@ -201,7 +197,6 @@ google-chrome
 hyprshot
 isomaster
 java32-runtime-common
-kanata
 linux-wifi-hotspot
 mongodb70-bin
 mongodb70-bin-debug
@@ -232,5 +227,14 @@ uinput-openrc
 ventoy-bin
 vim-plug
 vimiv-qt
-yay
-yay-debug
+ffmpeg
+jq
+poppler
+fd 
+ripgrep
+7zip
+imagemagick
+wl-clipboard
+yazi
+
+

@@ -39,6 +39,7 @@ alias mountPhone="sshfs kdeconnect@10.1.234.89:/storage/emulated/0 /home/deepak/
             -o IdentityFile=/home/deepak/.config/kdeconnect/privateKey.pem \
             -o uid=1000 -o gid=1000 -o allow_other"
 alias umountPhone="sudo umount -l /home/deepak/Realme\ 6Pro/"
+alias f=yazi
 
 function copyErrors
     $argv 2>&1 | wl-copy
