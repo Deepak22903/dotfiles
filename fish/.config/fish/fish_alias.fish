@@ -41,7 +41,7 @@ alias mountPhone="sshfs kdeconnect@10.1.234.89:/storage/emulated/0 /home/deepak/
 alias umountPhone="sudo umount -l /home/deepak/Realme\ 6Pro/"
 alias f=yazi
 
-function copyErrors
+function ce
     $argv 2>&1 | wl-copy
 end
 
