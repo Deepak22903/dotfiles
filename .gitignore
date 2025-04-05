@@ -1,6 +1,10 @@
 .config/fish/fish_variables
 .config/fish/fishd*
-yazi/.config/yazi/plugins/
 yazi/.config/yazi/package.toml
-!yazi/.config/yazi/plugins/smart-switch.yazi
 
+# Ignore all files in plugins directory…
+yazi/.config/yazi/plugins/*
+
+# …but do not ignore smart-switch.yazi and its contents:
+!yazi/.config/yazi/plugins/smart-switch.yazi/
+!yazi/.config/yazi/plugins/smart-switch.yazi/**
