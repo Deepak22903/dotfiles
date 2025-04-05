@@ -233,3 +233,9 @@ sort_translit  = false
 
 [log]
 enabled = false
+
+[plugins]
+plugins = [
+  "phone_send",
+  # ... other plugins
+]

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# catppuccin theme
+ya pack -a imsi32/yatline
+git clone https://github.com/imsi32/yatline-catppuccin.yazi.git ~/.config/yazi/plugins/yatline-catppuccin.yazi
+
 # open with cmd plugin
 ya pack -a Ape/open-with-cmd
 

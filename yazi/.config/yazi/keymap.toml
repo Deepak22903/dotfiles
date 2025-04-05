@@ -207,7 +207,10 @@ on = [ ":" ]
 run = 'plugin custom-shell -- fish --interactive --block'
 desc = "custom-shell as default with specified arguments"
 
-
+[[manager.prepend_keymap]]
+on = [ "<C-s>" ]
+run = "plugin kdeconnect-send" # [cite: 252, 255]
+desc = "Send selected files via KDE Connect"
 
 
 
