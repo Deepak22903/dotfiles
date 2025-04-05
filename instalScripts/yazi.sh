@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# catppuccin theme
+# catppuccin theme and ui
 ya pack -a imsi32/yatline
 git clone https://github.com/imsi32/yatline-catppuccin.yazi.git ~/.config/yazi/plugins/yatline-catppuccin.yazi
+ya pack -a yazi-rs/plugins:full-border
 
 # open with cmd plugin
 ya pack -a Ape/open-with-cmd
@@ -42,3 +43,12 @@ ya pack -a yazi-rs/plugins:mount
 
 # custom-shell plugin
 ya pack -a AnirudhG07/custom-shell
+
+# compress plugin
+ya pack -a KKV9/compress
+
+# what-size plugin
+ya pack -a pirafrank/what-size
+
+# kdeconnect-send plugin
+ya pack -a Deepak22903/kdeconnect-send
