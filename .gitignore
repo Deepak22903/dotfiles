@@ -1,2 +1,4 @@
 .config/fish/fish_variables
 .config/fish/fishd*
+yazi/.config/yazi/plugins/
+yazi/.config/yazi/package.toml
