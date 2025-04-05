@@ -2,3 +2,5 @@
 .config/fish/fishd*
 yazi/.config/yazi/plugins/
 yazi/.config/yazi/package.toml
+!yazi/.config/yazi/plugins/smart-switch.yazi
+
