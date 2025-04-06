@@ -38,4 +38,4 @@ sudo cp ./configFiles/kanata.service /etc/systemd/system
 sudo systemctl daemon-reload
 sudo systemctl enable kanata.service
 sudo systemctl start kanata.service
-source yazi.sh
+source ./configFiles/yazi.sh
