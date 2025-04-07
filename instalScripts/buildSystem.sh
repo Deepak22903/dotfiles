@@ -39,3 +39,11 @@ sudo systemctl daemon-reload
 sudo systemctl enable kanata.service
 sudo systemctl start kanata.service
 source ./configFiles/yazi.sh
+
+# Setting up screen utitlity
+git clone https://github.com/Deepak22903/My_Shell_Scripts.git && cd My_Shell_Scripts/
+g++ /home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/cpp/screen_idle_controller/screen_idle_controller.cpp -o screen
+sudo mv screen /bin/
+
+# Setting up firefox config utitlity
+sudo cp /home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/firefox_config /bin/
