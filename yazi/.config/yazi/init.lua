@@ -149,7 +149,7 @@ require("copy-file-contents"):setup({
 	notification = true,
 })
 
-require("git"):setup()
+-- require("git"):setup()
 
 require("custom-shell"):setup({
 	history_path = "default",
