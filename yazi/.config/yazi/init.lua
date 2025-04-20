@@ -95,7 +95,7 @@ require("full-border"):setup({
 
 require("bookmarks"):setup({
 	last_directory = { enable = true, persist = false, mode = "jump" },
-	persist = "vim",
+	persist = "all",
 	desc_format = "parent",
 	file_pick_mode = "hover",
 	custom_desc_input = false,
