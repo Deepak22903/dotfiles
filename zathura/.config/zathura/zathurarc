@@ -1,0 +1,11 @@
+include catppuccin-mocha
+
+# fullscreen keybind
+map <A-f> toggle_fullscreen
+map [fullscreen] <A-f> toggle_fullscreen
+
+# disable statusbar
+set guioptions none
+
+map <A-p> toggle_presentation
+map [presentation] <A-p> toggle_presentation
