@@ -6,16 +6,16 @@ require("yatline"):setup({
 	part_separator = { open = "", close = "" },
 	inverse_separator = { open = "", close = "" },
 
-	style_a = {
-		fg = "black",
-		bg_mode = {
-			normal = "#a89984",
-			select = "#d79921",
-			un_set = "#d65d0e",
-		},
-	},
-	style_b = { bg = "#665c54", fg = "#ebdbb2" },
-	style_c = { bg = "#3c3836", fg = "#a89984" },
+	-- style_a = {
+	-- 	fg = "black",
+	-- 	bg_mode = {
+	-- 		normal = "#a89984",
+	-- 		select = "#d79921",
+	-- 		un_set = "#d65d0e",
+	-- 	},
+	-- },
+	-- style_b = { bg = "#665c54", fg = "#ebdbb2" },
+	-- style_c = { bg = "#3c3836", fg = "#a89984" },
 
 	permissions_t_fg = "green",
 	permissions_r_fg = "yellow",
@@ -88,10 +88,10 @@ require("yatline"):setup({
 	},
 })
 
--- require("full-border"):setup({
--- 	-- Available values: ui.Border.PLAIN, ui.Border.ROUNDED
--- 	type = ui.Border.ROUNDED,
--- })
+require("full-border"):setup({
+	-- Available values: ui.Border.PLAIN, ui.Border.ROUNDED
+	type = ui.Border.ROUNDED,
+})
 
 require("bookmarks"):setup({
 	last_directory = { enable = true, persist = false, mode = "jump" },
