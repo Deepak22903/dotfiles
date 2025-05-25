@@ -1,3 +1,0 @@
-return {
-  "Chaitanyabsprip/present.nvim",
-}
