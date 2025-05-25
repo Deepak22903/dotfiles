@@ -159,6 +159,8 @@ else
   echo "⚠️ ./configFiles/kanata.service not found. Skipping Kanata service setup."
 fi
 
+yay -S yazi
+
 # Source yazi configuration (assuming it sets environment variables or aliases)
 if [ -f "./configFiles/yazi.sh" ]; then
   echo "⚙️ Sourcing yazi.sh configuration..."
