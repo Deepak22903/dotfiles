@@ -1,240 +1,225 @@
-7-zip-full
-aarch64-linux-gnu-gcc
-alsa-utils
-amd-ucode
-ani-cli
-anki
-apt
-archivemount
-asciiquarium
-base
-base-devel
-bat
-bc
-bibata-cursor-theme
-bind
-blueman
-bluetui
-bluez-utils
-brightnessctl
-btop
-c-lolcat
-catppuccin-cursors-mocha
-cava
-cliphist
-cmake
-cmatrix
-code
-copyq
-cowsay
-cppcodec
-curlftpfs
-dkms
-dolphin
-dosfstools
-drawio-desktop
-dunst
-dust
-efibootmgr
-eza
-firefox
-fish
-fish-nvm
-fnm
-frog-ocr
-fzf
-gcc-fortran
-ghq
-git
-git-filter-repo
-gnome-boxes
-gnome-shell-extensions
-google-chrome
-gparted
-grim
-grub
-gst-plugin-pipewire
-haveged
-htop
-hypridle
-hyprland
-hyprland-qtutils
-hyprlock
-hyprpaper
-hyprpicker
-hyprpolkitagent
-hyprshot
-inetutils
-iptables
-isomaster
-iwd
-java32-runtime-common
-kdeconnect
-kitty
-konsole
-kvantum
-lazygit
-libpulse
-libreoffice-fresh
-linux
-linux-firmware
-linux-headers
-linux-wifi-hotspot
-lxappearance
-man-db
-man-pages
-mariadb
-mongodb70-bin
-mtools
-mupdf-gl
-nano
-nautilus
-nautilus-python
-neovim
-nerd-fonts-noto-sans-mono
-network-manager-applet
-networkmanager
-nlohmann-json
-nodejs
-noto-fonts
-noto-fonts-cjk
-noto-fonts-emoji
-npm
-ntfs-3g
-nvidia-dkms
-nvm
-nwg-look
-obs-studio
-obsidian
-ollama
-openblas
-os-prober
-pipes.sh
-pipewire
-pipewire-alsa
-pipewire-jack
-pipewire-pulse
-playit-bin
-poco
-polkit-gnome
-polkit-kde-agent
-pyenv
-python-lookatme
-qimgv
-qt5-quickcontrols2
-qt5-wayland
-qt5ct
-qt6-wayland
-reflector
-ripdrag-git
-rofi-wayland
-rsyncy-bin
-rustup
-safe-rm
-scrcpy
-screenkey
-sddm
-shell-color-scripts-git
-simple-mtpfs
-sl
-slurp
-smartmontools
-socat
-sshfs
-stow
-swaync
-tgpt
-timeshift
-timeshift-systemd-timer
-tldr
-tmux
-toilet
-transmission-qt
-trash-cli
-tree
-ttf-hack-nerd
-ttf-jetbrains-mono-nerd
-tty-clock
-ufw
-uinput-openrc
-unzip
-ventoy-bin
-vi
-vim
-vim-plug
-vimiv-qt
-waybar
-wget
-wireless_tools
-wireplumber
-wofi
-wtype
-xdg-desktop-portal-hyprland
-xdg-utils
-xdotool
-xorg-server
-xorg-xhost
-xorg-xinit
-yt-dlp
-z
-zip
-zoxide
-zram-generator
-7-zip-full
-ani-cli
-anki
-archivemount
-archivemount-debug
-bibata-cursor-theme
-c-lolcat
-c-lolcat-debug
-catppuccin-cursors-mocha
-fish-nvm
-fnm
-fnm-debug
-frog-ocr
-google-chrome
-hyprshot
-isomaster
-java32-runtime-common
-linux-wifi-hotspot
-mongodb70-bin
-mongodb70-bin-debug
-mongosh-bin
-mongosh-bin-debug
-nerd-fonts-noto-sans-mono
-openrc
-pipes.sh
-playit-bin
-python-anthropic
-python-backoff
-python-lookatme
-python-nanoid
-python-posthog
-python-tokenizers
-pyzbar
-qimgv
-ripdrag-git
-rsyncy-bin
-safe-rm
-safe-rm-debug
-shell-color-scripts-git
-simple-mtpfs
-simple-mtpfs-debug
-timeshift-systemd-timer
-tty-clock
-uinput-openrc
-ventoy-bin
-vim-plug
-vimiv-qt
-ffmpeg
-jq
-poppler
-fd 
-ripgrep
-7zip
-imagemagick
-wl-clipboard
-yazi
-
-
+7zip 24.09-3
+aarch64-linux-gnu-gcc 14.2.0-1
+alsa-utils 1.2.14-1
+amd-ucode 20250508.788aadc8-1
+android_translation_layer r739.7aea3a69-1
+ani-cli 4.10-1
+anki 25.02.5-1
+apt 3.1.0-1
+archivemount 0.9.1-3
+asciiquarium 1.1-7
+atl-gui-git 0.1.0.r36.193e85e-1
+base 3-2
+base-devel 1-2
+bat 0.25.0-4
+bc 1.08.1-1
+bibata-cursor-theme 2.0.7-1
+bind 9.20.8-2
+bionic_translation r71.104abd18-1
+blueman 2.4.4-1
+bluetui 0.6-1
+bluez-utils 5.82-1
+brightnessctl 0.5.1-3
+bsd-compat-headers 0.7.2-2
+btop 1.4.3-2
+c-lolcat 1.4-1
+catppuccin-cursors-mocha 2.0.0-1
+cava 0.10.4-3
+chafa 1.14.5-1
+cliphist 1:0.6.1-1
+cmake 4.0.2-1
+cmatrix 2.0-3
+code 1.100.2-1
+copyq 10.0.0-1
+cowsay 3.8.4-1
+cpio 2.15-2
+cppcodec 0.2-4
+curlftpfs 0.9.2-10
+dkms 3.2.1-1
+dolphin 25.04.1-1
+dosfstools 4.2-5
+drawio-desktop 27.0.5-1
+dunst 1.12.2-1
+dust 1.2.0-1
+dysk 2.10.1-1
+efibootmgr 18-3
+elfutils 0.193-2
+eza 0.21.3-1
+fd 10.2.0-1
+firefox 138.0.4-1
+fish 4.0.2-1
+fish-nvm 2.2.17-1
+fnm 1.38.1-1
+fzf 0.62.0-1
+gbm 1.4.1-1
+gcc-fortran 15.1.1+r7+gf36ec88aa85a-1
+ghq 1.8.0-1
+git 2.49.0-2
+git-filter-repo 2.47.0-2
+github-cli 2.73.0-1
+glaze 5.2.1-1
+gnome-boxes 48.0-4
+gnome-shell-extensions 48.1-1
+go 2:1.24.3-1
+google-chrome 136.0.7103.113-1
+gparted 1.7.0-1
+grim 1.4.1-3
+grub 2:2.12.r292.g73d1c959-1
+gst-plugin-pipewire 1:1.4.2-1
+haveged 1.9.19-1
+htop 3.4.1-1
+hypridle 0.1.6-4
+hyprland-git 0.48.0.r163.gf8bbe51-1
+hyprlock-git 0.8.2.r4.gc12cf8e-1
+hyprpaper-git 0.7.5.r0.g753ffa7-1
+hyprpicker 0.4.5-1
+hyprpolkitagent 0.1.2-7
+hyprshot 1.3.0-2
+imagemagick 7.1.1.47-2
+inetutils 2.6-1
+iptables 1:1.8.11-2
+isomaster 1.3.17-1
+iwd 3.8-1
+kanata 1.8.1-1
+kdeconnect 25.04.1-1
+kitty 0.42.0-1
+konsole 25.04.1-1
+kvantum 1.1.5-1
+lazygit 0.50.0-1
+lib32-nvidia-utils 570.144-1
+libisoburn 1.5.6-1
+libpulse 17.0+r43+g3e2bb8a1e-1
+libreoffice-fresh 25.2.3-3
+linux 6.14.6.arch1-1
+linux-firmware 20250508.788aadc8-1
+linux-headers 6.14.6.arch1-1
+linux-wifi-hotspot 4.7.2-2
+lxappearance 0.6.4-1
+macchanger 1.7.0-6
+man-db 2.13.1-1
+man-pages 6.14-1
+mariadb 11.7.2-3
+mongodb70-bin 7.0.20-1
+mpc 0.35-1
+mpd 0.24.4-1
+mtools 1:4.0.48-1
+mupdf-gl 1.25.6-1
+nano 8.4-1
+nasm 2.16.03-2
+nautilus 48.1-1
+nautilus-python 4.0.1-4
+neovim 0.11.1-2
+nerd-fonts-noto-sans-mono 3.2.1-1
+network-manager-applet 1.36.0-1
+networkmanager 1.52.0-1
+networkmanager-openvpn 1.12.0-1
+nlohmann-json 3.12.0-2
+nodejs 23.11.1-1
+noto-fonts 1:2025.05.01-1
+noto-fonts-cjk 20240730-1
+noto-fonts-emoji 1:2.047-1
+npm 11.4.0-1
+nss-mdns 0.15.1-2
+ntfs-3g 2022.10.3-2
+nvidia-dkms 570.144-3
+nvm 0.40.3-1
+nwg-look 1.0.5-1
+obs-studio-git 31.0.3.r236.g000437f-1
+obsidian 1.8.10-1
+ollama 0.7.0-1
+openblas 0.3.29-1
+openresolv 3.16.5-1
+openvpn 2.6.14-1
+os-prober 1.83-1
+pandoc-cli 3.1.12.1-75
+paru 2.0.4-1
+pdftk 3.3.3-4
+pipes.sh 1.3.0-1
+pipewire 1:1.4.2-1
+pipewire-alsa 1:1.4.2-1
+pipewire-jack 1:1.4.2-1
+pipewire-pulse 1:1.4.2-1
+playit-bin 0.15.26-1
+poco 1.14.1-1
+polkit-gnome 0.105-11
+polkit-kde-agent 6.3.5-1
+proton-vpn-gtk-app 4.9.6-1
+pyenv 1:2.5.7-1
+python-lookatme 3.0.0.rc5-2
+python-pip 25.1.1-1
+python-pipx 1.7.1-2
+qimgv 1.0.3+alpha+94+ge2675f13-1
+qt5-quickcontrols2 5.15.16+kde+r5-3
+qt5-wayland 5.15.16+kde+r60-1
+qt5ct 1.9-1
+qt6-wayland 6.9.0-2
+reflector 2023-3
+ripdrag-git 0.4.10.r0.b7d92e6-1
+rmpc 0.8.0-1
+rofi-wayland 1.7.8.1-2
+rsyncy-bin 0.2.0-1
+rustup 1.28.2-1
+safe-rm 1.1.0-3
+samba 2:4.22.1-1
+scrcpy 3.2-1
+screenkey 1.5-5
+sddm 0.21.0-6
+shell-color-scripts-git r113.576735c-1
+simple-mtpfs 0.4.0-1
+sl 5.05-5
+slurp 1.5.0-1
+smartmontools 7.5-1
+socat 1.8.0.3-1
+sshfs 3.7.3-3
+steam 1.0.0.82-2
+stow 2.4.1-1
+swaync 0.11.0-1
+tgpt 2.10.0-1
+timeshift 24.06.6-1
+timeshift-systemd-timer 0.0.1-2
+tldr 3.4.1-1
+tmux 3.5_a-1
+toilet 0.3.r155.3eb9d58-3
+transmission-qt 4.0.6-9
+trash-cli 0.24.5.26-2
+tree 2.2.1-1
+ttf-hack-nerd 3.4.0-1
+ttf-indic-otf 0.2-12
+ttf-jetbrains-mono-nerd 3.4.0-1
+tty-clock 2.3-2
+ufw 0.36.2-5
+uinput-openrc 20241102-1
+unzip 6.0-22
+ventoy-bin 1.1.05-1
+vi 1:070224-6
+vim 9.1.1376-1
+vim-plug 0.14.0-1
+vimiv-qt 0.9.0-1
+waybar 0.12.0-1
+waydroid 1.5.1-1
+wget 1.25.0-2
+wireless_tools 30.pre9-4
+wireplumber 0.5.8-1
+wofi 1.4.1-1
+wolfssl-jni 5.8.0-1
+wtype 0.4-2
+xclip 0.13-6
+xdg-desktop-portal-hyprland-git 1.3.9.r6.g76bbf1a-1
+xdg-desktop-portal-termfilechooser-hunkyburrito-git v1.1.0.r1.gcaf24e7-1
+xdg-desktop-portal-wlr 0.7.1-1
+xdg-utils 1.2.1-1
+xdotool 3.20211022.1-2
+xorg-server 21.1.16-1
+xorg-xhost 1.0.10-1
+xorg-xinit 1.4.4-1
+yay 12.5.0-1
+yazi 25.4.8-1
+yt-dlp 2025.05.22-1
+z 1.12-1
+zathura 0.5.11-1
+zathura-pdf-mupdf 0.4.4-14
+zenity 4.1.90-1
+zip 3.0-11
+zoxide 0.9.7-1
+zram-generator 1.2.1-1
+zsh 5.9-5
