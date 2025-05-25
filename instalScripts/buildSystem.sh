@@ -265,3 +265,9 @@ mv ~/.cache/nvim{,.bak}
 git clone https://github.com/LazyVim/starter ~/.config/nvim
 
 rm -rf ~/.config/nvim/.git
+
+# remove init.lua and lua directory in ~/.config/nvim/ , then stow --adopt nvim
+
+yay -S fish
+
+# stow kitty directly
