@@ -45,7 +45,7 @@ ya pack -a yazi-rs/plugins:mount
 ya pack -a AnirudhG07/custom-shell
 
 # compress plugin
-ya pack -a KKV9/compress
+# ya pack -a KKV9/compress
 
 # what-size plugin
 ya pack -a pirafrank/what-size
