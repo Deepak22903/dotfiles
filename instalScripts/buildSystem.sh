@@ -36,6 +36,8 @@ check_command_exists() {
 echo "🔄 Updating system packages..."
 sudo pacman -Syu --noconfirm
 
+source ../install_nerd_font.sh
+
 # --- Install yay (AUR Helper) ---
 if check_command_exists yay; then
   echo "🎉 Yay is already installed."
@@ -125,6 +127,8 @@ if ! check_command_exists kanata; then
   if [ -f "$HOME/.cargo/bin/kanata" ]; then
     echo "Copying kanata to /usr/local/bin..." # Changed from /bin to /usr/local/bin as per FHS
     sudo cp "$HOME/.cargo/bin/kanata" /usr/local/bin/
+    sudo cp "$HOME/.cargo/bin/kanata" /usr/bin/
+    sudo cp "$HOME/.cargo/bin/kanata" /bin/
   else
     echo "❌ Kanata binary not found in $HOME/.cargo/bin after installation."
     echo "Please ensure cargo install kanata completed successfully and ~/.cargo/bin is in your PATH for the current user."
@@ -244,3 +248,20 @@ else
 fi
 
 echo "🎉 Script finished."
+
+# Remove hyprland.conf and then show hyprland
+# Change the monitor name in hyprland.conf, check monitor name using hyprctl monitors
+yay -S firefox
+
+# install lazyvim
+# required
+mv ~/.config/nvim{,.bak}
+
+# optional but recommended
+mv ~/.local/share/nvim{,.bak}
+mv ~/.local/state/nvim{,.bak}
+mv ~/.cache/nvim{,.bak}
+
+git clone https://github.com/LazyVim/starter ~/.config/nvim
+
+rm -rf ~/.config/nvim/.git
