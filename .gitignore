@@ -9,3 +9,8 @@ yazi/.config/yazi/plugins/*
 # …but do not ignore smart-switch.yazi and its contents:
 !yazi/.config/yazi/plugins/smart-switch.yazi/
 !yazi/.config/yazi/plugins/smart-switch.yazi/**
+
+nvim/.config/nvim/*
+!nvim/.config/nvim/init.lua
+!./nvim/.config/nvim/lua/
+!nvim/.config/nvim/lua/**
