@@ -27,21 +27,30 @@ alias blue="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/blue
 alias offhotspot="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/kde_connect/offhotspot.sh"
 alias peekdeepftp="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/ftp_mount.sh"
 alias rnetm="sudo /home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/misc/NetworkManagerConfAddComment.sh /etc/NetworkManager/NetworkManager.conf 6"
-alias tt="xdg-open /mnt/deepak/data/B_Tech/Sem_6/Class\ TY\ Div2.pdf"
-alias clock="tty-clock -c -C 4 -B -t"
-alias clear_cache="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/clear_arch_cache.sh"
+alias tt="xdg-open /home/deepak/Downloads/class_TY-Div2-2.pdf"
+alias clock="tty-clock -c -C 5 -t"
+alias system_maintain="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/clear_arch_cache.sh"
+# alias cl=clear
+# alias comp="g++ src/main.cpp src/functions.cpp src/fb_pages.cpp -o my_program -lcurl -lPocoFoundation"
+alias copyf="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/copyf.fish"
+alias findd="/home/deepak/ghq/github.com/Deepak22903/My_Shell_Scripts/global/findd.fish"
+alias stl="mupdf -I -C FFFAF0 /home/deepak/Downloads/Cpp_STL_ReferenceManual.pdf"
+alias mountPhone="sshfs kdeconnect@10.1.234.89:/storage/emulated/0 /home/deepak/Realme\ 6Pro/ -p 1739 \
+            -o IdentityFile=/home/deepak/.config/kdeconnect/privateKey.pem \
+            -o uid=1000 -o gid=1000 -o allow_other"
+alias umountPhone="sudo umount -l /home/deepak/Realme\ 6Pro/"
+alias f=yazi
 
-function copyErrors
+function ce
     $argv 2>&1 | wl-copy
 end
-
 
 function nst
     set_color green
     for interface in (nmcli -t connection show --active | cut -d':' -f4 | grep -v '^lo$')
         set name (nmcli -t connection show --active | grep $interface | cut -d':' -f1)
         echo -n "$name - "
-        
+
         # Get network statistics using ifstat and format the output
         ifstat | awk -v iface=$interface '$1 == iface {
             down = $6 / 1024  # Convert to MB/s

@@ -2,15 +2,220 @@
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
 "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
+
+# compress plugin
+
 [[manager.prepend_keymap]]
-on   = [ "c", "a" ]
-run  = "plugin compress"
-desc = "Archive selected files"
+  on   = [ "c", "a" ]
+  run  = "plugin compress"
+  desc = "Archive selected files"
+
+
+# min-preview and max-preview plugin
+
+# [[manager.prepend_keymap]]
+# on   = "T"
+# run  = "plugin toggle-pane min-preview"
+# desc = "Show or hide the preview pane"
 
 [[manager.prepend_keymap]]
 on   = "T"
-run  = "plugin max-preview"
-desc = "Maximize or restore preview"
+run  = "plugin toggle-pane max-preview"
+desc = "Maximize or restore the preview pane"
+
+
+# open-with-cmd plugin
+
+[[manager.prepend_keymap]]
+  on   = "o"
+  run  = "plugin open-with-cmd block"
+  desc = "Open with command in the terminal"
+
+[[manager.prepend_keymap]]
+  on   = "O"
+  run  = "plugin open-with-cmd"
+  desc = "Open with command"
+
+
+# f jump-to-char plugin
+
+[[manager.prepend_keymap]]
+  on   = "f"
+  run  = "plugin jump-to-char"
+  desc = "Jump to char"
+
+
+# bookmarks plugin
+
+[[manager.prepend_keymap]]
+  on = [ "m" ]
+  run = "plugin bookmarks save"
+  desc = "Save current position as a bookmark"
+
+[[manager.prepend_keymap]]
+  on = [ "'" ]
+  run = "plugin bookmarks jump"
+  desc = "Jump to a bookmark"
+
+[[manager.prepend_keymap]]
+  on = [ "b", "d" ]
+  run = "plugin bookmarks delete"
+  desc = "Delete a bookmark"
+
+[[manager.prepend_keymap]]
+  on = [ "b", "D" ]
+  run = "plugin bookmarks delete_all"
+  desc = "Delete all bookmarks"
+
+
+# chmod plugin
+
+[[manager.prepend_keymap]]
+  on   = [ "c", "m" ]
+  run  = "plugin chmod"
+  desc = "Chmod on selected files"
+
+
+# archivemount plugin
+
+[[manager.prepend_keymap]]
+  on   = [ "A", "m" ]
+  run  = "plugin archivemount mount"
+  desc = "Mount selected archive"
+
+[[manager.prepend_keymap]]
+  on   = [ "A", "u" ]
+  run  = "plugin archivemount unmount"
+  desc = "Unmount and save changes to original archive"
+
+
+# rsync plugin
+
+[[manager.prepend_keymap]]
+  on   = "R"
+  run  = "plugin rsync"
+  desc = "Copy files using rsync"
+
+
+# what-size plugin
+
+[[manager.prepend_keymap]]
+  on   = [ "c", "s" ]
+  run  = "plugin what-size"
+  desc = "Calc size of selection or cwd" 
+
+[[manager.prepend_keymap]]
+  on   = [ "c", "S" ]
+  run  = "plugin what-size -c"
+  desc = "Calc size of selection or cwd & copy to clipboard"
+
+
+# restore deleted files plugin
+
+[[manager.prepend_keymap]]
+  on = ["u"] 
+  run = "plugin restore" 
+  desc = "Restore last deleted files/folders" 
+
+
+# simple-mtpfs plugin
+
+[[manager.prepend_keymap]]
+  on = [ "M", "m" ]
+  run = "plugin simple-mtpfs -- select-then-mount --jump"
+  desc = "Select device to mount and jump to its mount point" 
+
+[[manager.prepend_keymap]]
+  on = [ "M", "r" ] 
+  run = "plugin simple-mtpfs -- remount-current-cwd-device"
+  desc = "Remount device under cwd" 
+
+[[manager.prepend_keymap]]
+  on = [ "M", "u" ]
+  run = "plugin simple-mtpfs -- select-then-unmount"
+  desc = "Select device then unmount" 
+
+[[manager.prepend_keymap]]
+  on = [ "g", "m" ]
+  run = "plugin simple-mtpfs -- jump-to-device" 
+  desc = "Select device then jump to its mount point" 
+
+[[manager.prepend_keymap]]
+  on = [ "`", "`" ] 
+  run = "plugin simple-mtpfs -- jump-back-prev-cwd"
+  desc = "Jump back to the position before jumped to device" 
+
+
+# copy-file-contents plugin
+
+[[manager.prepend_keymap]]
+  on = "<A-y>"
+  run = ["plugin copy-file-contents"]
+  desc = "Copy contents of file"
+
+
+# open shell keymap
+
+[[manager.prepend_keymap]]
+on   = "!"
+run  = 'shell "$SHELL" --block'
+desc = "Open shell here"
+
+
+# cancel input
+
+[[input.prepend_keymap]]
+on   = "<Esc>"
+run  = "close"
+desc = "Cancel input"
+
+
+# smart-switch plugin
+
+[[manager.prepend_keymap]]
+on   = "2"
+run  = "plugin smart-switch 1"
+desc = "Switch or create tab 2"
+
+
+# smart yank to system clipboard
+
+[[manager.prepend_keymap]]
+on  = "y"
+run = [ 'shell -- for path in "$@"; do echo "file://$path"; done | wl-copy -t text/uri-list', "yank" ]
+
+
+# cd back to the root of the current Git repository
+
+[[manager.prepend_keymap]]
+on = [ "g", "r" ]
+run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"'
+desc = "Go to root of git repo"
+
+
+# mount manager plugin
+
+[[manager.prepend_keymap]]
+on  = [ "M","M" ]
+run = "plugin mount"
+
+
+# custom-shell plugin
+
+[[manager.prepend_keymap]]
+on = [ ":" ]
+run = 'plugin custom-shell -- fish --interactive --block'
+desc = "custom-shell as default with specified arguments"
+
+[[manager.prepend_keymap]]
+on = [ "<C-s>" ]
+run = "plugin kdeconnect-send" # [cite: 252, 255]
+desc = "Send selected files via KDE Connect"
+
+
+
+
+
 
 [manager]
 
@@ -42,8 +247,8 @@ keymap = [
 	{ on = "<PageUp>",     run = "arrow -100%", desc = "Move cursor up one page" },
 	{ on = "<PageDown>",   run = "arrow 100%",  desc = "Move cursor down one page" },
 
-	{ on = [ "g", "g" ], run = "arrow -99999999", desc = "Move cursor to the top" },
-	{ on = "G",          run = "arrow 99999999",  desc = "Move cursor to the bottom" },
+	{ on = [ "g", "g" ], run = "arrow top", desc = "Move cursor to the top" },
+	{ on = "G",          run = "arrow bot",  desc = "Move cursor to the bottom" },
 
 	# Navigation
 	{ on = "h", run = "leave", desc = "Go back to the parent directory" },
@@ -185,6 +390,7 @@ keymap = [
 	{ on = "~",    run = "help", desc = "Open help" },
 	{ on = "<F1>", run = "help", desc = "Open help" },
 ]
+
 
 [select]
 

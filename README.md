@@ -23,12 +23,12 @@ pacman -S stow
 First, check out the dotfiles repo in your $HOME directory using git
 
 ```
-$ git clone git@github.com/dreamsofautonomy/dotfiles.git
-$ cd dotfiles
+ git clone https://github.com/Deepak22903/dotfiles.git
+ cd dotfiles
 ```
 
 then use GNU stow to create symlinks
 
 ```
-$ stow .
+ stow <name of available directory>
 ```

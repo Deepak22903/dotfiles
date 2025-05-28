@@ -10,19 +10,19 @@ source ~/.config/fish/fish_alias.fish
 source ~/.config/fish/functions/fzf_change_directory.fish
 
 # Bind Ctrl+F to the _peco_change_directory function
-bind \cf fzf_change_directory
+# bind \cc fzf_change_directory
 
 # Source custom peco select history function
 source ~/.config/fish/functions/fzf_select_history.fish
 
 # Bind Ctrl+R to the peco_select_history function
-# bind \cr fzf_select_history
+bind \cr fzf_select_history
 
 # Source fzf select and copy function
 source ~/.config/fish/functions/fzf_select_and_copy.fish
 
 # Bind the function to Ctrl+S
-bind \cs fzf_select_and_copy
+# bind \cs fzf_select_and_copy
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
@@ -39,10 +39,8 @@ end
 # Bind Ctrl+o to open file
 bind \co fzf_open_file
 
-
 # Created by `pipx` on 2024-08-24 15:51:49
 set PATH $PATH /home/deepak/.local/bin
-
 
 set -Ux fish_user_paths /var/lib/snapd/snap/bin $fish_user_paths
 
@@ -66,4 +64,6 @@ set -gx EDITOR nvim
 
 set -Ux PATH /home/deepak/ghq/github.com/atos-tools/dineroIV/dineroIV $PATH
 
-thefuck --alias | source
+# Chane cursor color
+echo -ne "\e]12;#89b4fa\a"
+export GTK_USE_PORTAL=1
