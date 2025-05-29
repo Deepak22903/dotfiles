@@ -250,6 +250,8 @@ fi
 echo "🎉 Script finished."
 
 # Remove hyprland.conf and then show hyprland
+rm ~/.config/hypr/hyprland.conf
+stow hyprland
 # Change the monitor name in hyprland.conf, check monitor name using hyprctl monitors
 yay -S firefox
 
@@ -267,7 +269,23 @@ git clone https://github.com/LazyVim/starter ~/.config/nvim
 rm -rf ~/.config/nvim/.git
 
 # remove init.lua and lua directory in ~/.config/nvim/ , then stow --adopt nvim
+rm ~/.config/nvim/init.lua
+rm -r ~/.config/nvim/lua
+stow --adopt nvim
 
 yay -S fish
+fish
 
 # stow kitty directly
+stow kitty
+
+# setup bluetooth
+sudo pacman -S bluez bluez-utils blueman
+sudo systemctl enable bluetooth.service
+sudo systemctl start bluetooth.service
+
+# install tide prompt
+set -l _tide_tmp_dir (command mktemp -d)
+curl https://codeload.github.com/ilancosman/tide/tar.gz/v6 | tar -xzC $_tide_tmp_dir
+command cp -R $_tide_tmp_dir/*/{completions,conf.d,functions} $__fish_config_dir
+fish_path=(status fish-path) exec $fish_path -C "emit _tide_init_install"
