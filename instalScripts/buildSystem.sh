@@ -251,7 +251,7 @@ echo "🎉 Script finished."
 
 # Remove hyprland.conf and then show hyprland
 rm ~/.config/hypr/hyprland.conf
-stow hyprland
+stow ~/dotfiles/hyprland
 # Change the monitor name in hyprland.conf, check monitor name using hyprctl monitors
 yay -S firefox
 
@@ -271,13 +271,13 @@ rm -rf ~/.config/nvim/.git
 # remove init.lua and lua directory in ~/.config/nvim/ , then stow --adopt nvim
 rm ~/.config/nvim/init.lua
 rm -r ~/.config/nvim/lua
-stow --adopt nvim
+stow --adopt ~/dotfiles/nvim
 
 yay -S fish
 fish
 
 # stow kitty directly
-stow kitty
+stow ~/dotfiles/kitty
 
 # setup bluetooth
 sudo pacman -S bluez bluez-utils blueman
@@ -290,5 +290,18 @@ curl https://codeload.github.com/ilancosman/tide/tar.gz/v6 | tar -xzC $_tide_tmp
 command cp -R $_tide_tmp_dir/*/{completions,conf.d,functions} $__fish_config_dir
 fish_path=(status fish-path) exec $fish_path -C "emit _tide_init_install"
 
-yay -S bat tldr ani-cli eza linux-wifi-hotspot zoxide yt-dlp tty-clock sshfs python-pipx fzf tmux shell-color-scripts  wl-clipboard rofi-wayland
+# stow fish after installing tide
+stow ~/dotfiles/fish
+
+yay -S bat tldr ani-cli eza linux-wifi-hotspot zoxide yt-dlp tty-clock sshfs python-pipx fzf tmux shell-color-scripts-git  wl-clipboard rofi-wayland
+
+# setup tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+stow ~/dotfiles/tmux
+
+# type this in terminal if tmux is already running
+tmux source ~/.config/tmux/tmux.conf
+
+# then press prefix(ctrl+a)+I
 
