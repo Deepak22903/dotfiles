@@ -293,7 +293,7 @@ fish_path=(status fish-path) exec $fish_path -C "emit _tide_init_install"
 # stow fish after installing tide
 stow ~/dotfiles/fish
 
-yay -S bat tldr ani-cli eza linux-wifi-hotspot zoxide yt-dlp tty-clock sshfs python-pipx fzf tmux shell-color-scripts-git  wl-clipboard rofi-wayland
+yay -S bat tldr ani-cli eza linux-wifi-hotspot zoxide yt-dlp tty-clock sshfs python-pipx fzf tmux shell-color-scripts-git  wl-clipboard rofi-wayland copyq
 
 # setup tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

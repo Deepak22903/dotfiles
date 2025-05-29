@@ -86,7 +86,6 @@ kitty
 konsole
 kvantum
 lazygit
-lib32-nvidia-utils
 libisoburn
 libpulse
 libreoffice-fresh
@@ -171,7 +170,6 @@ slurp
 smartmontools
 socat
 sshfs
-steam
 stow
 swaync
 tgpt
