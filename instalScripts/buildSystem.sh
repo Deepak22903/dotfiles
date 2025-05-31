@@ -316,5 +316,7 @@ rm -r ~/.config/qimgv
 stow ~/dotfiles/qimgv
 stow ~/dotfiles/zathura
 
+yay -S beautyline
+
 
 
