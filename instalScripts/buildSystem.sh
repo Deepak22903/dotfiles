@@ -314,5 +314,7 @@ rm ~/.config/mimeapps.list
 stow ~/dotfiles/mimeapps
 rm -r ~/.config/qimgv
 stow ~/dotfiles/qimgv
+stow ~/dotfiles/zathura
+
 
 
