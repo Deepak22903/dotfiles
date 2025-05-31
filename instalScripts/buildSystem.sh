@@ -306,3 +306,9 @@ tmux source ~/.config/tmux/tmux.conf
 # then press prefix(ctrl+a)+I
 
 stow ~/dotfiles/yazi
+stow ~/dotfiles/waybar
+rm ~/.config/lazygit/config.yml
+stow ~/dotfiles/lazygit
+stow ~/dotfiles/swaync
+
+

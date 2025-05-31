@@ -1,0 +1,34 @@
+[Default Applications]
+# Web Browser
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/ftp=firefox.desktop
+x-scheme-handler/chrome=firefox.desktop
+text/html=firefox.desktop
+
+# Image Viewer
+image/jpeg=qimgv.desktop
+image/png=qimgv.desktop
+image/gif=qimgv.desktop
+image/bmp=qimgv.desktop
+image/webp=qimgv.desktop
+image/tiff=qimgv.desktop
+image/svg+xml=qimgv.desktop
+# Add any other image formats you commonly use
+
+[Added Associations]
+# Web Browser
+x-scheme-handler/http=firefox.desktop;
+x-scheme-handler/https=firefox.desktop;
+x-scheme-handler/ftp=firefox.desktop;
+x-scheme-handler/chrome=firefox.desktop;
+text/html=firefox.desktop;
+
+# Image Viewer
+image/jpeg=qimgv.desktop;
+image/png=qimgv.desktop;
+image/gif=qimgv.desktop;
+image/bmp=qimgv.desktop;
+image/webp=qimgv.desktop;
+image/tiff=qimgv.desktop;
+image/svg+xml=qimgv.desktop;
