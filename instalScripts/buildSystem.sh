@@ -310,5 +310,9 @@ stow ~/dotfiles/waybar
 rm ~/.config/lazygit/config.yml
 stow ~/dotfiles/lazygit
 stow ~/dotfiles/swaync
+rm ~/.config/mimeapps.list
+stow ~/dotfiles/mimeapps
+rm -r ~/.config/qimgv
+stow ~/dotfiles/qimgv
 
 
