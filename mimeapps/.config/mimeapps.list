@@ -14,7 +14,9 @@ image/bmp=qimgv.desktop
 image/webp=qimgv.desktop
 image/tiff=qimgv.desktop
 image/svg+xml=qimgv.desktop
-# Add any other image formats you commonly use
+
+# pdf Viewer
+application/pdf=org.pwmt.zathura.desktop
 
 [Added Associations]
 # Web Browser
@@ -32,3 +34,5 @@ image/bmp=qimgv.desktop;
 image/webp=qimgv.desktop;
 image/tiff=qimgv.desktop;
 image/svg+xml=qimgv.desktop;
+
+application/pdf=org.pwmt.zathura.desktop
