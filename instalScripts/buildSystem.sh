@@ -305,3 +305,4 @@ tmux source ~/.config/tmux/tmux.conf
 
 # then press prefix(ctrl+a)+I
 
+stow ~/dotfiles/yazi
