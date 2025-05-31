@@ -2,9 +2,7 @@
 aarch64-linux-gnu-gcc
 alsa-utils
 amd-ucode
-android_translation_layer
 ani-cli
-anki
 apt
 archivemount
 asciiquarium
@@ -13,7 +11,6 @@ base
 base-devel
 bat
 bc
-bibata-cursor-theme
 bind
 bionic_translation
 blueman
@@ -22,7 +19,6 @@ bluez-utils
 brightnessctl
 bsd-compat-headers
 btop
-c-lolcat
 catppuccin-cursors-mocha
 cava
 chafa
@@ -51,7 +47,6 @@ fish
 fish-nvm
 fnm
 fzf
-gbm
 gcc-fortran
 ghq
 git
@@ -69,9 +64,9 @@ gst-plugin-pipewire
 haveged
 htop
 hypridle
-hyprland-git
-hyprlock-git
-hyprpaper-git
+hyprland
+hyprlock
+hyprpaper
 hyprpicker
 hyprpolkitagent
 hyprshot
@@ -80,7 +75,6 @@ inetutils
 iptables
 isomaster
 iwd
-kanata
 kdeconnect
 kitty
 konsole
@@ -98,7 +92,6 @@ macchanger
 man-db
 man-pages
 mariadb
-mongodb70-bin
 mpc
 mpd
 mtools
@@ -123,7 +116,6 @@ ntfs-3g
 nvidia-dkms
 nvm
 nwg-look
-obs-studio-git
 obsidian
 ollama
 openblas
@@ -186,15 +178,12 @@ ttf-indic-otf
 ttf-jetbrains-mono-nerd
 tty-clock
 ufw
-uinput-openrc
 unzip
 ventoy-bin
 vi
 vim
 vim-plug
-vimiv-qt
 waybar
-waydroid
 wget
 wireless_tools
 wireplumber
@@ -202,7 +191,6 @@ wofi
 wolfssl-jni
 wtype
 xclip
-xdg-desktop-portal-hyprland-git
 xdg-desktop-portal-termfilechooser-hunkyburrito-git
 xdg-desktop-portal-wlr
 xdg-utils
@@ -210,7 +198,6 @@ xdotool
 xorg-server
 xorg-xhost
 xorg-xinit
-yay
 yazi
 yt-dlp
 z
@@ -221,3 +208,5 @@ zip
 zoxide
 zram-generator
 zsh
+obs-studio
+xdg-desktop-portal-hyprland
