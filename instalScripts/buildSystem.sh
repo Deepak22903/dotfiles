@@ -319,4 +319,10 @@ stow ~/dotfiles/zathura
 yay -S beautyline
 
 
+# setup sddm theme
+git clone https://github.com/stepanzubkov/where-is-my-sddm-theme.git /tmp/sddmTheme
+sudo /tmp/sddmTheme/install.sh current
+sudo cp ~/dotfiles/instalScripts/configFiles/sddmTheme.conf /usr/share/sddm/themes/where_is_my_sddm_theme/theme.conf
+
+
 
