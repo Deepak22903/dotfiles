@@ -324,5 +324,6 @@ git clone https://github.com/stepanzubkov/where-is-my-sddm-theme.git /tmp/sddmTh
 sudo /tmp/sddmTheme/install.sh current
 sudo cp ~/dotfiles/instalScripts/configFiles/sddmTheme.conf /usr/share/sddm/themes/where_is_my_sddm_theme/theme.conf
 
-
+# catppuccin theme for fish
+fish_config theme save "Catppuccin Mocha"
 
