@@ -78,6 +78,10 @@
 )
 
 (defalias
+  mse (layer-while-held mouse)
+)
+
+(defalias
   cp (tap-hold $tap-time $hold-time esc (layer-toggle capslock))
   ec caps
   a (tap-hold $tap-time $hold-time a lmet)
@@ -96,12 +100,29 @@
   ralt (tap-hold $tap-time $hold-time ralt (layer-toggle symbols))
   spc (tap-hold $tap-time $hold-time spc (layer-toggle numbers))
 
+  ;; Setting for mouse movement
+  tab (tap-hold $tap-time $hold-time tab @mse)
+
+  ms↑ (movemouse-up 4 4)
+  ms← (movemouse-left 4 4)
+  ms↓ (movemouse-down 4 4)
+  ms→ (movemouse-right 4 4)
+
+  mwu (mwheel-up 50 120)
+  mwd (mwheel-down 50 120)
+  mwl (mwheel-left 50 120)
+  mwr (mwheel-right 50 120)
+
+  fst (movemouse-speed 200)
+  slw (movemouse-speed 50)
+  vsl (movemouse-speed 25)
+
 )
 
 (deflayer base
   @ec                                                   f11
   grv  1    2    3    4    5    6    7    8    9    0    -    =   @bspc
-  tab  q    w    e    r    t    y    u    i    o    p    @[   ]    \
+  @tab  q    w    e    r    t    y    u    i    o    p    @[   ]    \
   @cp  @a   @s   @d   @f    g   h   @j   @k   @l   @;   @'   @enter
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
   lctl lmet @lalt           @spc            @ralt rmet rctl
@@ -131,5 +152,14 @@
   _    _    _    _    _    _    _    7    8    9     _    _   _    _
   _    _    _    _    _    _    _    4    5    6  _    _   _
   _    _    _    _    _    _    0    1    2    3     _    _
+  _    _    _           _            _    _    _
+)
+
+(deflayer mouse
+  _                                                       _
+  _    _    _    _    _    _    _    _    _    _     _    _    _   _
+  _    @fst @slw @vsl    _    _    _    mmid mlft mrgt  _    _   _    _
+  _    _    _    _    _    _   @ms← @ms↓ @ms↑ @ms→   _    _   _
+  _    _    _    _    _    _   @mwd @mwu @mwl @mwr     _    _
   _    _    _           _            _    _    _
 )
