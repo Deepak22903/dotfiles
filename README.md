@@ -31,4 +31,23 @@ then use GNU stow to create symlinks
 
 ```
  stow <name of available directory>
+
+```
+
+## Install Kanata keyboard remapper
+
+- Windows
+
+```bash
+wget https://github.com/jtroo/kanata/releases/download/v1.8.1/kanata.exe
+wget https://raw.githubusercontent.com/Deepak22903/dotfiles/refs/heads/main/kanata.kbd
+kanata.exe -c kanata.kbd
+```
+
+- Linux
+
+```bash
+wget https://github.com/jtroo/kanata/releases/download/v1.8.1/kanata
+wget https://raw.githubusercontent.com/Deepak22903/dotfiles/refs/heads/main/kanata.kbd
+sudo kanata.exe -c kanata.kbd
 ```
