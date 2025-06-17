@@ -158,8 +158,8 @@
 (deflayer mouse
   _                                                       _
   _    _    _    _    _    _    _    _    _    _     _    _    _   _
-  _    @fst @slw @vsl    _    _    _    mmid mlft mrgt  _    _   _    _
-  _    _    _    _    _    _   @ms← @ms↓ @ms↑ @ms→   _    _   _
+  _    _    _    _    _    _    _    mmid mlft mrgt  _    _   _    _
+  _    _    @fst @slw @vsl _   @ms← @ms↓ @ms↑ @ms→   _    _   _
   _    _    _    _    _    _   @mwd @mwu @mwl @mwr     _    _
   _    _    _           _            _    _    _
 )
