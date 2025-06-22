@@ -5,7 +5,7 @@
 
 # compress plugin
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
   on   = [ "c", "a" ]
   run  = "plugin compress"
   desc = "Archive selected files"
@@ -18,7 +18,7 @@
 # run  = "plugin toggle-pane min-preview"
 # desc = "Show or hide the preview pane"
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
 on   = "T"
 run  = "plugin toggle-pane max-preview"
 desc = "Maximize or restore the preview pane"
@@ -26,12 +26,12 @@ desc = "Maximize or restore the preview pane"
 
 # open-with-cmd plugin
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
   on   = "o"
   run  = "plugin open-with-cmd block"
   desc = "Open with command in the terminal"
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
   on   = "O"
   run  = "plugin open-with-cmd"
   desc = "Open with command"
@@ -39,7 +39,7 @@ desc = "Maximize or restore the preview pane"
 
 # f jump-to-char plugin
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
   on   = "f"
   run  = "plugin jump-to-char"
   desc = "Jump to char"
@@ -47,22 +47,22 @@ desc = "Maximize or restore the preview pane"
 
 # bookmarks plugin
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
   on = [ "m" ]
   run = "plugin bookmarks save"
   desc = "Save current position as a bookmark"
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
   on = [ "'" ]
   run = "plugin bookmarks jump"
   desc = "Jump to a bookmark"
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
   on = [ "b", "d" ]
   run = "plugin bookmarks delete"
   desc = "Delete a bookmark"
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
   on = [ "b", "D" ]
   run = "plugin bookmarks delete_all"
   desc = "Delete all bookmarks"
@@ -70,7 +70,7 @@ desc = "Maximize or restore the preview pane"
 
 # chmod plugin
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
   on   = [ "c", "m" ]
   run  = "plugin chmod"
   desc = "Chmod on selected files"
@@ -78,12 +78,12 @@ desc = "Maximize or restore the preview pane"
 
 # archivemount plugin
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
   on   = [ "A", "m" ]
   run  = "plugin archivemount mount"
   desc = "Mount selected archive"
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
   on   = [ "A", "u" ]
   run  = "plugin archivemount unmount"
   desc = "Unmount and save changes to original archive"
@@ -91,7 +91,7 @@ desc = "Maximize or restore the preview pane"
 
 # rsync plugin
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
   on   = "R"
   run  = "plugin rsync"
   desc = "Copy files using rsync"
@@ -99,12 +99,12 @@ desc = "Maximize or restore the preview pane"
 
 # what-size plugin
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
   on   = [ "c", "s" ]
   run  = "plugin what-size"
   desc = "Calc size of selection or cwd" 
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
   on   = [ "c", "S" ]
   run  = "plugin what-size -c"
   desc = "Calc size of selection or cwd & copy to clipboard"
@@ -112,7 +112,7 @@ desc = "Maximize or restore the preview pane"
 
 # restore deleted files plugin
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
   on = ["u"] 
   run = "plugin restore" 
   desc = "Restore last deleted files/folders" 
@@ -120,27 +120,27 @@ desc = "Maximize or restore the preview pane"
 
 # simple-mtpfs plugin
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
   on = [ "M", "m" ]
   run = "plugin simple-mtpfs -- select-then-mount --jump"
   desc = "Select device to mount and jump to its mount point" 
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
   on = [ "M", "r" ] 
   run = "plugin simple-mtpfs -- remount-current-cwd-device"
   desc = "Remount device under cwd" 
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
   on = [ "M", "u" ]
   run = "plugin simple-mtpfs -- select-then-unmount"
   desc = "Select device then unmount" 
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
   on = [ "g", "m" ]
   run = "plugin simple-mtpfs -- jump-to-device" 
   desc = "Select device then jump to its mount point" 
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
   on = [ "`", "`" ] 
   run = "plugin simple-mtpfs -- jump-back-prev-cwd"
   desc = "Jump back to the position before jumped to device" 
@@ -148,7 +148,7 @@ desc = "Maximize or restore the preview pane"
 
 # copy-file-contents plugin
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
   on = "<A-y>"
   run = ["plugin copy-file-contents"]
   desc = "Copy contents of file"
@@ -156,7 +156,7 @@ desc = "Maximize or restore the preview pane"
 
 # open shell keymap
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
 on   = "!"
 run  = 'shell "$SHELL" --block'
 desc = "Open shell here"
@@ -172,7 +172,7 @@ desc = "Cancel input"
 
 # smart-switch plugin
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
 on   = "2"
 run  = "plugin smart-switch 1"
 desc = "Switch or create tab 2"
@@ -180,14 +180,14 @@ desc = "Switch or create tab 2"
 
 # smart yank to system clipboard
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
 on  = "y"
 run = [ 'shell -- for path in "$@"; do echo "file://$path"; done | wl-copy -t text/uri-list', "yank" ]
 
 
 # cd back to the root of the current Git repository
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
 on = [ "g", "r" ]
 run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"'
 desc = "Go to root of git repo"
@@ -195,19 +195,19 @@ desc = "Go to root of git repo"
 
 # mount manager plugin
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
 on  = [ "M","M" ]
 run = "plugin mount"
 
 
 # custom-shell plugin
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
 on = [ ":" ]
 run = 'plugin custom-shell -- fish --interactive --block'
 desc = "custom-shell as default with specified arguments"
 
-[[mgr.prepend_keymap]]
+[[manager.prepend_keymap]]
 on = [ "<C-s>" ]
 run = "plugin kdeconnect-send" # [cite: 252, 255]
 desc = "Send selected files via KDE Connect"
@@ -217,7 +217,7 @@ desc = "Send selected files via KDE Connect"
 
 
 
-[mgr]
+[manager]
 
 keymap = [
   { on = [ "<A-d>" ], run = '''
