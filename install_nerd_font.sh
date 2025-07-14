@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo pacman -S jq
+
 declare -a fonts=(
   # BitstreamVeraSansMono
   # CascadiaCode
@@ -40,7 +42,7 @@ for font in "${fonts[@]}"; do
   download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/${version}/${zip_file}"
   echo "Downloading $download_url"
   wget "$download_url"
-  unzip -o "$zip_file" -d "$fonts_dir"  # Added the -o option here to allow replacing
+  unzip -o "$zip_file" -d "$fonts_dir" # Added the -o option here to allow replacing
   rm "$zip_file"
 done
 
