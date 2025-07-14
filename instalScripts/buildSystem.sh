@@ -188,6 +188,7 @@ SCREEN_UTIL_TARGET="/usr/local/bin/screen_controller" # Renamed for clarity and 
 SCREEN_UTIL_SOURCE_DIR="$HOME/ghq/github.com/Deepak22903/My_Shell_Scripts"
 SCREEN_UTIL_CPP_FILE="$SCREEN_UTIL_SOURCE_DIR/cpp/screen_idle_controller/screen_idle_controller.cpp"
 
+sudo pacman -S ghq stow
 if [ ! -f "$SCREEN_UTIL_TARGET" ]; then
   if ! check_command_exists ghq; then
     echo "⚠️ ghq is not installed. Please install it to clone repositories (e.g., yay -S ghq)."
