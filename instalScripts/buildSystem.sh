@@ -1,330 +1,379 @@
 #!/bin/bash
 
-# Exit immediately if a command exits with a non-zero status.
-set -e
+# Exit immediately if a command exits with a non-zero status, if an unset variable is used, or if a command in a pipeline fails.
+set -euo pipefail
+
+# --- Colors ---
+C_RESET='\033[0m'
+C_RED='\033[0;31m'
+C_GREEN='\033[0;32m'
+C_YELLOW='\033[0;33m'
+C_BLUE='\033[0;34m'
+C_CYAN='\033[0;36m'
 
 # --- Helper Functions ---
+info() {
+  echo -e "${C_CYAN}INFO:${C_RESET} $1"
+}
+
+success() {
+  echo -e "${C_GREEN}✅ SUCCESS:${C_RESET} $1"
+}
+
+warn() {
+  echo -e "${C_YELLOW}⚠️ WARNING:${C_RESET} $1"
+}
+
+error() {
+  echo -e "${C_RED}❌ ERROR:${C_RESET} $1" >&2
+  exit 1
+}
+
 check_pkg_installed() {
-  if pacman -Q "$1" &>/dev/null; then
-    echo "✅ $1 is already installed."
-    return 0 # 0 indicates true (installed)
-  else
-    return 1 # 1 indicates false (not installed)
-  fi
+  pacman -Q "$1" &>/dev/null
 }
 
 check_yay_pkg_installed() {
-  if yay -Q "$1" &>/dev/null; then
-    echo "✅ $1 is already installed (via yay/AUR)."
-    return 0
-  else
-    return 1
-  fi
+  yay -Q "$1" &>/dev/null
 }
 
 check_command_exists() {
-  if command -v "$1" &>/dev/null; then
-    echo "✅ Command '$1' is available."
-    return 0
+  command -v "$1" &>/dev/null
+}
+
+# --- Main Functions ---
+
+system_update() {
+  info "Updating system packages..."
+  sudo pacman -Syu --noconfirm
+  success "System packages updated."
+}
+
+install_nerd_fonts() {
+  info "Installing Nerd Fonts..."
+  # Assuming install_nerd_font.sh is in the parent directory of this script's location
+  local script_dir
+  script_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
+  if [ -f "$script_dir/../install_nerd_font.sh" ]; then
+    source "$script_dir/../install_nerd_font.sh"
+    success "Nerd Fonts installation script executed."
   else
-    echo "⚠️ Command '$1' not found."
-    return 1
+    warn "install_nerd_font.sh not found, skipping Nerd Font installation."
   fi
 }
 
-# --- System Update ---
-echo "🔄 Updating system packages..."
-sudo pacman -Syu --noconfirm
-
-source ../install_nerd_font.sh
-
-# --- Install yay (AUR Helper) ---
-if check_command_exists yay; then
-  echo "🎉 Yay is already installed."
-else
-  echo "🛠️ Yay is not installed. Installing yay..."
-  if ! check_pkg_installed git || ! check_pkg_installed base-devel; then
-    echo "Installing prerequisites for yay: git and base-devel..."
-    sudo pacman -S --needed --noconfirm git base-devel
-  else
-    echo "Prerequisites for yay (git, base-devel) are already satisfied."
+install_yay() {
+  if check_command_exists yay; then
+    success "yay is already installed."
+    return
   fi
 
-  # Create a temporary directory for cloning and building yay
-  TEMP_YAY_DIR=$(mktemp -d)
-  echo "Cloning yay-bin into temporary directory: $TEMP_YAY_DIR"
-  git clone https://aur.archlinux.org/yay-bin.git "$TEMP_YAY_DIR"
-  ( # Start a subshell to avoid `cd` issues
-    cd "$TEMP_YAY_DIR" || {
-      echo "❌ Failed to change directory to $TEMP_YAY_DIR"
-      exit 1
-    }
-    echo "Building and installing yay..."
+  info "Installing yay (AUR Helper)..."
+  if ! check_pkg_installed git || ! check_pkg_installed base-devel; then
+    info "Installing prerequisites for yay: git and base-devel..."
+    sudo pacman -S --needed --noconfirm git base-devel
+  fi
+
+  local temp_dir
+  temp_dir=$(mktemp -d)
+  info "Cloning yay-bin into temporary directory: $temp_dir"
+  git clone https://aur.archlinux.org/yay-bin.git "$temp_dir"
+  (
+    cd "$temp_dir" || exit 1
+    info "Building and installing yay..."
     makepkg -si --noconfirm
   )
-  echo "Cleaning up temporary yay directory: $TEMP_YAY_DIR"
-  rm -rf "$TEMP_YAY_DIR"
+  info "Cleaning up temporary yay directory: $temp_dir"
+  rm -rf "$temp_dir"
 
   if check_command_exists yay; then
-    echo "🎉 Yay installed successfully!"
+    success "yay installed successfully!"
   else
-    echo "❌ Failed to install Yay. Please check for errors."
-    exit 1 # Exit if yay installation failed, as it's crucial for next steps
+    error "Failed to install yay."
   fi
-fi
+}
 
-# --- Install Packages from List ---
-echo "📦 Installing packages from package_list_new.txt..."
-if [ -f "package_list_new.txt" ]; then
-  # Update AUR packages first
-  yay -Syu --noconfirm --aur
+install_packages() {
+  info "Installing packages..."
+  local packages_file="$1"
+  local aur_packages=(
+    "yazi"
+    "bat"
+    "tldr"
+    "ani-cli"
+    "eza"
+    "linux-wifi-hotspot"
+    "zoxide"
+    "yt-dlp"
+    "tty-clock"
+    "sshfs"
+    "python-pipx"
+    "fzf"
+    "tmux"
+    "shell-color-scripts-git"
+    "wl-clipboard"
+    "rofi-wayland"
+    "copyq"
+    "beautyline"
+    "firefox"
+  )
+  local pacman_packages=(
+    "nlohmann-json"
+    "ghq"
+    "stow"
+    "bluez"
+    "bluez-utils"
+    "blueman"
+  )
 
-  # Read package_list_new.txt and install packages
-  # This loop checks each package before attempting to install
-  while IFS= read -r pkg || [[ -n "$pkg" ]]; do
-    if [[ -z "$pkg" ]] || [[ "$pkg" =~ ^# ]]; then # Skip empty lines and comments
-      continue
+  # Install packages from file
+  if [ -f "$packages_file" ]; then
+    info "Installing packages from $packages_file..."
+    yay -S --needed --noconfirm - < "$packages_file"
+    success "All packages from list processed."
+  else
+    warn "$packages_file not found. Skipping package installation from list."
+  fi
+
+  # Install other packages
+  info "Installing additional pacman packages..."
+  sudo pacman -S --needed --noconfirm "${pacman_packages[@]}"
+  
+  info "Installing additional AUR packages..."
+  yay -S --needed --noconfirm "${aur_packages[@]}"
+
+  success "All packages installed."
+}
+
+setup_kanata() {
+  info "Setting up Kanata..."
+  if ! check_command_exists cargo; then
+    info "Rust (cargo) is not installed. Installing Rust via rustup..."
+    if ! check_command_exists rustup; then
+      sudo pacman -S --needed --noconfirm rustup
     fi
-    if ! yay -Q "$pkg" &>/dev/null; then
-      echo "Installing $pkg..."
-      yay -S --needed --noconfirm "$pkg"
+    rustup install stable
+    rustup default stable
+  fi
+
+  if ! check_command_exists kanata; then
+    info "Installing Kanata..."
+    cargo install kanata
+    if [ -f "$HOME/.cargo/bin/kanata" ]; then
+      info "Copying kanata to /usr/local/bin..."
+      sudo cp "$HOME/.cargo/bin/kanata" /usr/local/bin/
     else
-      echo "✅ $pkg is already installed."
+      error "Kanata binary not found in $HOME/.cargo/bin after installation."
     fi
-  done <"package_list_new.txt"
-  echo "✅ All packages from list processed."
-else
-  echo "⚠️ package_list_new.txt not found. Skipping package installation from list."
-fi
-
-# --- Install and Setup Kanata ---
-echo "⌨️ Setting up Kanata..."
-if ! check_command_exists cargo; then
-  echo "Rust (cargo) is not installed. Installing Rust via rustup..."
-  if ! check_command_exists rustup; then
-    sudo pacman -S --needed --noconfirm rustup
-  else
-    echo "✅ rustup is already installed."
   fi
-  rustup install stable
-  rustup default stable
-else
-  echo "✅ Rust (cargo) is already installed."
-  # Ensure stable toolchain is default if rustup is managed elsewhere
-  if check_command_exists rustup; then
-    if ! rustup show active-toolchain | grep -q "stable"; then
-      echo "Setting rustup default toolchain to stable..."
-      rustup default stable
+
+  local service_file="./configFiles/kanata.service"
+  if [ -f "$service_file" ]; then
+    if [ ! -f "/etc/systemd/system/kanata.service" ]; then
+      info "Copying kanata.service to /etc/systemd/system..."
+      sudo cp "$service_file" /etc/systemd/system/
+      sudo systemctl daemon-reload
+    fi
+    if ! sudo systemctl is-enabled kanata.service &>/dev/null; then
+      info "Enabling kanata.service..."
+      sudo systemctl enable kanata.service
+    fi
+    if ! sudo systemctl is-active kanata.service &>/dev/null; then
+      info "Starting kanata.service..."
+      sudo systemctl start kanata.service
+    fi
+    success "Kanata service is set up and running."
+  else
+    warn "$service_file not found. Skipping Kanata service setup."
+  fi
+}
+
+setup_custom_scripts() {
+  info "Setting up custom scripts..."
+  local source_repo="Deepak22903/My_Shell_Scripts"
+  local source_dir="$HOME/ghq/github.com/$source_repo"
+
+  if [ ! -d "$source_dir" ]; then
+    info "Cloning $source_repo using ghq..."
+    ghq get "$source_repo"
+  else
+    info "Source directory for custom scripts already exists: $source_dir"
+    info "Consider running 'ghq get -u $source_repo' manually to update."
+  fi
+
+  # Screen Utility
+  local screen_util_target="/usr/local/bin/screen_controller"
+  local screen_util_source="$source_dir/cpp/screen_idle_controller/screen_idle_controller.cpp"
+  if [ ! -f "$screen_util_target" ]; then
+    if [ -f "$screen_util_source" ]; then
+      info "Compiling screen_idle_controller.cpp..."
+      local temp_build_dir
+      temp_build_dir=$(mktemp -d)
+      g++ "$screen_util_source" -o "$temp_build_dir/screen_controller"
+      info "Moving compiled screen_controller to $screen_util_target..."
+      sudo mv "$temp_build_dir/screen_controller" "$screen_util_target"
+      rm -rf "$temp_build_dir"
+      success "Screen utility compiled and moved to $screen_util_target."
     else
-      echo "✅ Rust stable toolchain is already active."
+      warn "$screen_util_source not found. Cannot compile screen utility."
     fi
-  fi
-fi
-
-if ! check_command_exists kanata; then
-  echo "Installing Kanata..."
-  cargo install kanata
-  if [ -f "$HOME/.cargo/bin/kanata" ]; then
-    echo "Copying kanata to /usr/local/bin..." # Changed from /bin to /usr/local/bin as per FHS
-    sudo cp "$HOME/.cargo/bin/kanata" /usr/local/bin/
-    sudo cp "$HOME/.cargo/bin/kanata" /usr/bin/
-    sudo cp "$HOME/.cargo/bin/kanata" /bin/
   else
-    echo "❌ Kanata binary not found in $HOME/.cargo/bin after installation."
-    echo "Please ensure cargo install kanata completed successfully and ~/.cargo/bin is in your PATH for the current user."
-  fi
-else
-  echo "✅ Kanata is already installed and accessible in PATH."
-fi
-
-if [ -f "./configFiles/kanata.service" ]; then
-  if [ ! -f "/etc/systemd/system/kanata.service" ]; then
-    echo "Copying kanata.service to /etc/systemd/system..."
-    sudo cp ./configFiles/kanata.service /etc/systemd/system/
-    sudo systemctl daemon-reload
-  else
-    echo "✅ kanata.service already exists in /etc/systemd/system."
+    success "Screen utility ($screen_util_target) already exists."
   fi
 
-  if ! sudo systemctl is-enabled kanata.service &>/dev/null; then
-    echo "Enabling kanata.service..."
-    sudo systemctl enable kanata.service
-  else
-    echo "✅ kanata.service is already enabled."
-  fi
-
-  if ! sudo systemctl is-active kanata.service &>/dev/null; then
-    echo "Starting kanata.service..."
-    sudo systemctl start kanata.service
-  else
-    echo "✅ kanata.service is already active."
-  fi
-else
-  echo "⚠️ ./configFiles/kanata.service not found. Skipping Kanata service setup."
-fi
-
-yay -S yazi
-
-# Source yazi configuration (assuming it sets environment variables or aliases)
-if [ -f "./configFiles/yazi.sh" ]; then
-  echo "⚙️ Sourcing yazi.sh configuration..."
-  # shellcheck source=./configFiles/yazi.sh
-  source ./configFiles/yazi.sh
-else
-  echo "⚠️ ./configFiles/yazi.sh not found. Skipping yazi configuration."
-fi
-
-# --- Install nlohmann-json ---
-echo "📦 Installing nlohmann-json..."
-if ! check_pkg_installed nlohmann-json; then
-  sudo pacman -S --needed --noconfirm nlohmann-json
-else
-  echo "✅ nlohmann-json is already installed."
-fi
-
-# --- Setting up Screen Utility ---
-echo "🖥️ Setting up screen utility..."
-SCREEN_UTIL_TARGET="/usr/local/bin/screen_controller" # Renamed for clarity and FHS compliance
-SCREEN_UTIL_SOURCE_DIR="$HOME/ghq/github.com/Deepak22903/My_Shell_Scripts"
-SCREEN_UTIL_CPP_FILE="$SCREEN_UTIL_SOURCE_DIR/cpp/screen_idle_controller/screen_idle_controller.cpp"
-
-sudo pacman -S ghq stow
-if [ ! -f "$SCREEN_UTIL_TARGET" ]; then
-  if ! check_command_exists ghq; then
-    echo "⚠️ ghq is not installed. Please install it to clone repositories (e.g., yay -S ghq)."
-  else
-    if [ ! -d "$SCREEN_UTIL_SOURCE_DIR" ]; then
-      echo "Cloning Deepak22903/My_Shell_Scripts using ghq..."
-      ghq get Deepak22903/My_Shell_Scripts # 'ghq get' is idempotent
+  # Firefox Config Utility
+  local firefox_config_target="/usr/local/bin/firefox_config"
+  local firefox_config_source="$source_dir/global/firefox_config"
+  if [ ! -f "$firefox_config_target" ]; then
+    if [ -f "$firefox_config_source" ]; then
+      info "Copying firefox_config to $firefox_config_target..."
+      sudo cp "$firefox_config_source" "$firefox_config_target"
+      sudo chmod +x "$firefox_config_target"
+      success "Firefox config utility copied to $firefox_config_target."
     else
-      echo "✅ Source directory for screen utility already exists: $SCREEN_UTIL_SOURCE_DIR"
-      echo "Consider running 'ghq get -u Deepak22903/My_Shell_Scripts' manually to update."
+      warn "$firefox_config_source not found. Cannot set up Firefox config utility."
     fi
-
-    if [ -f "$SCREEN_UTIL_CPP_FILE" ]; then
-      echo "Compiling screen_idle_controller.cpp..."
-      TEMP_BUILD_DIR=$(mktemp -d)
-      g++ "$SCREEN_UTIL_CPP_FILE" -o "$TEMP_BUILD_DIR/screen_controller"
-      echo "Moving compiled screen_controller to $SCREEN_UTIL_TARGET..."
-      sudo mv "$TEMP_BUILD_DIR/screen_controller" "$SCREEN_UTIL_TARGET"
-      rm -rf "$TEMP_BUILD_DIR" # Clean up temporary build directory
-      echo "✅ Screen utility compiled and moved to $SCREEN_UTIL_TARGET."
-    else
-      echo "❌ $SCREEN_UTIL_CPP_FILE not found. Cannot compile screen utility."
-    fi
-  fi
-else
-  echo "✅ Screen utility ($SCREEN_UTIL_TARGET) already exists."
-fi
-
-# --- Setting up Firefox Config Utility ---
-echo "🦊 Setting up Firefox config utility..."
-FIREFOX_CONFIG_TARGET="/usr/local/bin/firefox_config" # FHS compliance
-FIREFOX_CONFIG_SOURCE_DIR="$HOME/ghq/github.com/Deepak22903/My_Shell_Scripts"
-FIREFOX_CONFIG_SOURCE_FILE="$FIREFOX_CONFIG_SOURCE_DIR/global/firefox_config"
-
-if [ ! -f "$FIREFOX_CONFIG_TARGET" ]; then
-  if ! check_command_exists ghq; then
-    echo "⚠️ ghq is not installed. Please install it to clone repositories (e.g., yay -S ghq)."
   else
-    if [ ! -d "$FIREFOX_CONFIG_SOURCE_DIR" ]; then
-      echo "Cloning Deepak22903/My_Shell_Scripts using ghq..."
-      ghq get Deepak22903/My_Shell_Scripts
-    else
-      echo "✅ Source directory for Firefox config utility already exists: $FIREFOX_CONFIG_SOURCE_DIR"
-      echo "Consider running 'ghq get -u Deepak22903/My_Shell_Scripts' manually to update."
-    fi
-
-    if [ -f "$FIREFOX_CONFIG_SOURCE_FILE" ]; then
-      echo "Copying firefox_config to $FIREFOX_CONFIG_TARGET..."
-      sudo cp "$FIREFOX_CONFIG_SOURCE_FILE" "$FIREFOX_CONFIG_TARGET"
-      sudo chmod +x "$FIREFOX_CONFIG_TARGET" # Ensure it's executable
-      echo "✅ Firefox config utility copied to $FIREFOX_CONFIG_TARGET."
-    else
-      echo "❌ $FIREFOX_CONFIG_SOURCE_FILE not found. Cannot set up Firefox config utility."
-    fi
+    success "Firefox config utility ($firefox_config_target) already exists."
   fi
-else
-  echo "✅ Firefox config utility ($FIREFOX_CONFIG_TARGET) already exists."
-fi
+}
 
-echo "🎉 Script finished."
+setup_nvim() {
+  info "Setting up Neovim with LazyVim starter..."
+  if [ -d "$HOME/.config/nvim" ]; then
+    info "Backing up existing nvim config to ~/.config/nvim.bak"
+    mv ~/.config/nvim{,.bak}
+  fi
+  
+  # Optional backups
+  [ -d "$HOME/.local/share/nvim" ] && mv ~/.local/share/nvim{,.bak}
+  [ -d "$HOME/.local/state/nvim" ] && mv ~/.local/state/nvim{,.bak}
+  [ -d "$HOME/.cache/nvim" ] && mv ~/.cache/nvim{,.bak}
 
-# Remove hyprland.conf and then show hyprland
-rm ~/.config/hypr/hyprland.conf
-stow ~/dotfiles/hyprland
-# Change the monitor name in hyprland.conf, check monitor name using hyprctl monitors
-yay -S firefox
+  info "Cloning LazyVim starter..."
+  git clone https://github.com/LazyVim/starter ~/.config/nvim
+  rm -rf ~/.config/nvim/.git
 
-# install lazyvim
-# required
-mv ~/.config/nvim{,.bak}
+  info "Stowing custom nvim configuration..."
+  rm -f ~/.config/nvim/init.lua
+  rm -rf ~/.config/nvim/lua
+  stow --dir="$HOME/dotfiles" --target="$HOME" --adopt nvim
+  success "Neovim setup complete."
+}
 
-# optional but recommended
-mv ~/.local/share/nvim{,.bak}
-mv ~/.local/state/nvim{,.bak}
-mv ~/.cache/nvim{,.bak}
+setup_fish_shell() {
+  info "Setting up Fish shell..."
+  yay -S --needed --noconfirm fish
 
-git clone https://github.com/LazyVim/starter ~/.config/nvim
+  info "Installing Tide prompt for Fish..."
+  local temp_dir
+  temp_dir=$(mktemp -d)
+  curl -sL https://codeload.github.com/ilancosman/tide/tar.gz/v6 | tar -xzC "$temp_dir"
+  # This assumes a standard fish config location.
+  command cp -R "$temp_dir"/tide-v6/{completions,conf.d,functions} "$HOME/.config/fish/"
+  rm -rf "$temp_dir"
+  
+  info "Stowing fish configuration..."
+  stow --dir="$HOME/dotfiles" --target="$HOME" fish
 
-rm -rf ~/.config/nvim/.git
+  info "Setting fish theme to Catppuccin Mocha..."
+  # Run this command as the user, not root
+  fish -c "fish_config theme save 'Catppuccin Mocha'"
+  
+  success "Fish shell setup complete."
+}
 
-# remove init.lua and lua directory in ~/.config/nvim/ , then stow --adopt nvim
-rm ~/.config/nvim/init.lua
-rm -r ~/.config/nvim/lua
-stow --adopt ~/dotfiles/nvim
+setup_bluetooth() {
+  info "Setting up Bluetooth..."
+  sudo systemctl enable bluetooth.service
+  sudo systemctl start bluetooth.service
+  success "Bluetooth service enabled and started."
+}
 
-yay -S fish
-fish
+setup_tmux() {
+  info "Setting up Tmux..."
+  if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    info "Cloning Tmux Plugin Manager (tpm)..."
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  fi
+  
+  info "Stowing tmux configuration..."
+  stow --dir="$HOME/dotfiles" --target="$HOME" tmux
+  
+  success "Tmux setup complete."
+  info "If tmux is running, reload config with: tmux source ~/.config/tmux/tmux.conf"
+  info "Then press prefix(Ctrl+a) + I to install plugins."
+}
 
-# stow kitty directly
-stow ~/dotfiles/kitty
+stow_configs() {
+  info "Stowing dotfiles..."
+  local configs_to_stow=(
+    "hyprland"
+    "kitty"
+    "yazi"
+    "waybar"
+    "lazygit"
+    "swaync"
+    "mimeapps"
+    "qimgv"
+    "zathura"
+  )
 
-# setup bluetooth
-sudo pacman -S bluez bluez-utils blueman
-sudo systemctl enable bluetooth.service
-sudo systemctl start bluetooth.service
+  # Special handling for files that might exist
+  rm -f ~/.config/hypr/hyprland.conf
+  rm -f ~/.config/lazygit/config.yml
+  rm -f ~/.config/mimeapps.list
+  rm -rf ~/.config/qimgv
 
-# install tide prompt
-set -l _tide_tmp_dir (command mktemp -d)
-curl https://codeload.github.com/ilancosman/tide/tar.gz/v6 | tar -xzC $_tide_tmp_dir
-command cp -R $_tide_tmp_dir/*/{completions,conf.d,functions} $__fish_config_dir
-fish_path=(status fish-path) exec $fish_path -C "emit _tide_init_install"
+  for config in "${configs_to_stow[@]}"; do
+    info "Stowing $config..."
+    stow --dir="$HOME/dotfiles" --target="$HOME" "$config"
+  done
+  success "Dotfiles stowed."
+}
 
-# stow fish after installing tide
-stow ~/dotfiles/fish
+setup_sddm_theme() {
+  info "Setting up SDDM theme..."
+  local temp_dir="/tmp/sddmTheme"
+  git clone https://github.com/stepanzubkov/where-is-my-sddm-theme.git "$temp_dir"
+  sudo "$temp_dir/install.sh" current
+  sudo cp "$HOME/dotfiles/instalScripts/configFiles/sddmTheme.conf" /usr/share/sddm/themes/where_is_my_sddm_theme/theme.conf
+  rm -rf "$temp_dir"
+  success "SDDM theme installed."
+}
 
-yay -S bat tldr ani-cli eza linux-wifi-hotspot zoxide yt-dlp tty-clock sshfs python-pipx fzf tmux shell-color-scripts-git  wl-clipboard rofi-wayland copyq
+main() {
+  system_update
+  install_nerd_fonts
+  install_yay
+  
+  local script_dir
+  script_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
+  install_packages "$script_dir/../../package_list_new.txt"
+  
+  setup_kanata
+  setup_custom_scripts
+  setup_nvim
+  setup_fish_shell
+  setup_bluetooth
+  setup_tmux
+  stow_configs
+  setup_sddm_theme
 
-# setup tmux
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  # Source yazi configuration
+  local yazi_config_script="./configFiles/yazi.sh"
+  if [ -f "$yazi_config_script" ]; then
+    info "Sourcing yazi.sh configuration..."
+    # shellcheck source=./configFiles/yazi.sh
+    source "$yazi_config_script"
+  else
+    warn "$yazi_config_script not found. Skipping yazi configuration."
+  fi
 
-stow ~/dotfiles/tmux
+  success "🎉 System setup script finished successfully!"
+  info "Some changes might require a logout or reboot to take effect."
+}
 
-# type this in terminal if tmux is already running
-tmux source ~/.config/tmux/tmux.conf
-
-# then press prefix(ctrl+a)+I
-
-stow ~/dotfiles/yazi
-stow ~/dotfiles/waybar
-rm ~/.config/lazygit/config.yml
-stow ~/dotfiles/lazygit
-stow ~/dotfiles/swaync
-rm ~/.config/mimeapps.list
-stow ~/dotfiles/mimeapps
-rm -r ~/.config/qimgv
-stow ~/dotfiles/qimgv
-stow ~/dotfiles/zathura
-
-yay -S beautyline
-
-
-# setup sddm theme
-git clone https://github.com/stepanzubkov/where-is-my-sddm-theme.git /tmp/sddmTheme
-sudo /tmp/sddmTheme/install.sh current
-sudo cp ~/dotfiles/instalScripts/configFiles/sddmTheme.conf /usr/share/sddm/themes/where_is_my_sddm_theme/theme.conf
-
-# catppuccin theme for fish
-fish_config theme save "Catppuccin Mocha"
+# --- Execute Script ---
+main
 
