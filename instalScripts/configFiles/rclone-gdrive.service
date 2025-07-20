@@ -1,0 +1,29 @@
+[Unit]
+Description=Google Drive (rclone)
+After=network-online.target
+
+[Service]
+Type=notify
+ExecStartPre=/bin/mkdir -p %h/gdrive
+ExecStart=/usr/bin/rclone mount gdrive: %h/gdrive \
+  --allow-other \
+  --vfs-cache-mode full \
+  --vfs-cache-max-size 20G \
+  --vfs-cache-max-age 24h \
+  --vfs-read-chunk-size 128M \
+  --vfs-read-chunk-size-limit 2G \
+  --vfs-read-ahead 256M \
+  --dir-cache-time 24h \
+  --poll-interval 15s \
+  --buffer-size 128M \
+  --transfers 8 \
+  --drive-chunk-size 128M \
+  --umask 002
+ExecStop=/bin/fusermount -u %h/gdrive
+TimeoutStopSec=20
+KillMode=process
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target
