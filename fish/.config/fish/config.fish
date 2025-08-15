@@ -67,3 +67,6 @@ set -Ux PATH /home/deepak/ghq/github.com/atos-tools/dineroIV/dineroIV $PATH
 # Chane cursor color
 echo -ne "\e]12;#89b4fa\a"
 export GTK_USE_PORTAL=1
+
+set -x PATH /opt/cuda/bin $PATH
+set -x LD_LIBRARY_PATH /opt/cuda/lib64 $LD_LIBRARY_PATH
