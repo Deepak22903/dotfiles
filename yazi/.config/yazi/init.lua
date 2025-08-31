@@ -155,3 +155,7 @@ require("custom-shell"):setup({
 	history_path = "default",
 	save_history = true,
 })
+
+require("kdeconnect-send"):setup({
+	auto_select_single = false,
+})
