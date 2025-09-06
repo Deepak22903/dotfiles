@@ -363,6 +363,21 @@ main() {
   # Source yazi configuration
   local yazi_config_script="./configFiles/yazi.sh"
   if [ -f "$yazi_config_script" ]; then
+    info "Running yazi.sh configuration script..."
+    bash "$yazi_config_script"
+  else
+    warn "$yazi_config_script not found. Skipping yazi configuration."
+  fi
+
+  success "🎉 System setup script finished successfully!"
+  info "Some changes might require a logout or reboot to take effect."
+}
+
+# --- Execute Script ---
+main
+
+="./configFiles/yazi.sh"
+  if [ -f "$yazi_config_script" ]; then
     info "Sourcing yazi.sh configuration..."
     # shellcheck source=./configFiles/yazi.sh
     source "$yazi_config_script"

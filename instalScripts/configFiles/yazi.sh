@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Exit immediately if a command exits with a non-zero status.
-set -e
+# Exit immediately if a command exits with a non-zero status, if an unset variable is used, or if a command in a pipeline fails.
+set -euo pipefail
 
 # --- Configuration ---
 YAZI_CONFIG_DIR="$HOME/.config/yazi"
