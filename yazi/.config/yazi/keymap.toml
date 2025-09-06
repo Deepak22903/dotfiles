@@ -221,7 +221,7 @@ desc = "Send selected files via KDE Connect"
 
 keymap = [
   { on = [ "<A-d>" ], run = '''
-    shell 'ripdrag "$@" -x 2>/dev/null &' --confirm
+    shell 'ripdrag -a "$@" -x 2>/dev/null &' --confirm
 ''' },
 	{ on = "<Esc>", run = "escape",             desc = "Exit visual mode, clear selected, or cancel search" },
 	{ on = "<C-[>", run = "escape",             desc = "Exit visual mode, clear selected, or cancel search" },
