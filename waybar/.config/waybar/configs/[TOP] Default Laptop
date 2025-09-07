@@ -28,8 +28,7 @@
 "modules-center": [
 	"group/app_drawer",
 	"custom/separator#blank",
-	"group/notify",
-	"custom/separator#dot-line",
+  "custom/separator#dot-line",
 	"hyprland/workspaces#rw",
 	"clock",
 	],
