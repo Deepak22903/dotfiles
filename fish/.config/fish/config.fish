@@ -70,3 +70,9 @@ export GTK_USE_PORTAL=1
 
 set -x PATH /opt/cuda/bin $PATH
 set -x LD_LIBRARY_PATH /opt/cuda/lib64 $LD_LIBRARY_PATH
+
+string match -q "$TERM_PROGRAM" vscode
+and . (code --locate-shell-integration-path fish)
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/deepak/google-cloud-sdk/path.fish.inc' ]; . '/home/deepak/google-cloud-sdk/path.fish.inc'; end
