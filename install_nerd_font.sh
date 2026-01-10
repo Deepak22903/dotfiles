@@ -1,6 +1,7 @@
 #!/bin/bash
 
-sudo pacman -S jq wget unzip fontconfig
+#uncomment if arch
+#sudo pacman -S jq wget unzip fontconfig
 
 declare -a fonts=(
   # BitstreamVeraSansMono
