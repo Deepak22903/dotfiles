@@ -52,10 +52,10 @@
   ' enter
   lalt (tap-hold $tap-time $hold-time lalt (layer-toggle symbols))
   ralt (tap-hold $tap-time $hold-time ralt (layer-toggle symbols))
-  spc (tap-hold $tap-time $hold-time spc (layer-toggle numbers))
+  spc (tap-hold $tap-time $hold-time spc @mse)
 
   ;; Setting for mouse movement
-  tab (tap-hold $tap-time $hold-time tab @mse)
+  tab (tap-hold $tap-time $hold-time tab (layer-toggle numbers))
 
   ms↑ (movemouse-up 4 4)
   ms← (movemouse-left 4 4)
